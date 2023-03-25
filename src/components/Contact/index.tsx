@@ -3,7 +3,7 @@ import Button from "@components/Button"
 import Image from 'next/image'
 import contactForm from 'public/structuralImages/contact-image.jpg'
 import { useState } from "react"
-import mailgun from 'mailgun-js';
+// import mailgun from 'mailgun-js';
 
 const Contact = () => {
 
@@ -15,10 +15,10 @@ const Contact = () => {
 		event.preventDefault();
 
 		// Configurar e enviar o e-mail aqui
-		const mg = mailgun({
-			apiKey: process?.env?.MAILGUN_API_KEY?.toString() ?? "",
-			domain: process?.env?.MAILGUN_DOMAIN?.toString() ?? "",
-		});
+		// const mg = mailgun({
+		// 	apiKey: process?.env?.MAILGUN_API_KEY?.toString() ?? "",
+		// 	domain: process?.env?.MAILGUN_DOMAIN?.toString() ?? "",
+		// });
 
 		// Configurar os detalhes do e-mail
 		const mailData = {
@@ -29,13 +29,13 @@ const Contact = () => {
 		};
 
 		// Enviar o e-mail
-		mg.messages().send(mailData, (error, body) => {
-			if (error) {
-				console.log(error);
-			} else {
-				console.log(body);
-			}
-		});
+		// mg.messages().send(mailData, (error, body) => {
+		// 	if (error) {
+		// 		console.log(error);
+		// 	} else {
+		// 		console.log(body);
+		// 	}
+		// });
 
 		// Limpar o formulário
 		setName('');
@@ -44,29 +44,29 @@ const Contact = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<Box color="neutral" className="container grid grid-cols-2 gap-5 m-5 mx-auto">
-				<Box color="neutral" className="relative">
-					<Image
-						fill={true}
-						style={{ objectFit: "cover" }}
-						src={contactForm}
-						alt="Contact form image"
-					/>
-				</Box>
-				<Box className="flex flex-col gap-5 p-10">
-					<a className="font-semibold link text-accent hover:text-accent-focus">entre em contato</a>
 
+		<Box color="neutral" className="grid grid-cols-2 gap-5 m-5 mx-auto">
+			<Box color="neutral" className="relative">
+				<Image
+					fill={true}
+					style={{ objectFit: "cover" }}
+					src={contactForm}
+					alt="Contact form image"
+				/>
+			</Box>
+			<Box className="flex flex-col gap-4 p-10">
+				<a className="font-semibold link text-accent hover:text-accent-focus">entre em contato</a>
+
+				<form onSubmit={handleSubmit}>
 					<Box className="flex flex-col gap-4">
-
 						<input type="text" placeholder="Nome" className="w-full max-w-xs input input-bordered" value={name} onChange={(e) => setName(e.target.value)} />
 						<input type="text" placeholder="Email" className="w-full max-w-xs input input-bordered" value={email} onChange={(e) => setEmail(e.target.value)} />
 						<textarea className="textarea textarea-bordered" placeholder="Mensagem" value={message} onChange={(e) => setMessage(e.target.value)} ></textarea>
 						<Button submit={true} type="cta">Enviar</Button>
 					</Box>
-				</Box>
+				</form >
 			</Box>
-		</form >
+		</Box>
 	)
 }
 

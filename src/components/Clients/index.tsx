@@ -18,16 +18,16 @@ const Clients: FunctionComponent = () => {
 	return (
 		<>
 
-			<Box color={'neutral'} className={'flex gap-[19.2px] my-5 flex-wrap box-border'}>
+			<Box color={'neutral'} className={'flex gap-[19.2px] my-5 flex-wrap box-border '}>
 				<div className='relative flex items-center justify-center border bg-accent aspect-square h-60 rounded-xl'>
-					<p className={'text-white font-semibold text-center text-5xl'}>Nossos Clientes</p>
+					<p className={'text-white font-light text-center text-4xl'}>Nossos<br />clientes</p>
 				</div>
-				{logos.map((logo, i) => <div className='relative border aspect-square h-60 border-primary' key={i}>
+				{logos.map((logo, i) => <div className='relative border rounded-md aspect-square h-60 border-primary' key={i}>
 					<Image
 						fill={true}
 						style={{ objectFit: "contain" }}
 						src={logo}
-						className={'p-5'}
+						className={'p-5 grayscale'}
 						alt="Logo dos clientes"
 					/>
 				</div>

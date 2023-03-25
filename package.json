@@ -6,30 +6,40 @@
     "dev": "cross-env NODE_OPTIONS=--max_old_space_size=4096 refine dev",
     "build": "refine build",
     "start": "refine start",
-    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint": "next lint",
     "refine": "refine"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@refinedev/antd": "^5.3.6",
     "@refinedev/cli": "^2.0.0",
     "@refinedev/core": "^4.0.0",
-    "@refinedev/nextjs-router": "^5.0.0",
     "@refinedev/inferencer": "^3.0.0",
     "@refinedev/kbar": "^1.0.0",
+    "@refinedev/nextjs-router": "^5.0.0",
+    "@refinedev/supabase": "^5.0.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "antd": "^5.0.5",
+    "daisyui": "^2.51.5",
+    "mailgun-js": "^0.22.0",
     "next": "^13.0.6",
     "nookies": "^2.5.2",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "@refinedev/supabase": "^5.0.0",
-    "@refinedev/antd": "^5.0.0",
-    "antd": "^5.0.5",
-    "@ant-design/icons": "^5.0.1"
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@types/mailgun-js": "^0.22.13",
+    "@types/node": "^12.20.11",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@types/node": "^12.20.11",
     "@typescript-eslint/parser": "5.48.0",
-    "typescript": "^4.7.4",
-    "cross-env": "^7.0.3"
+    "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "eslint-config-prettier": "^8.8.0",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.7.4"
   }
 }

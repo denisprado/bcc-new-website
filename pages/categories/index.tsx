@@ -6,7 +6,7 @@ export default function CategoryList() {
   return <AntdListInferencer />;
 }
 
-export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { authenticated, redirectTo } = await authProvider.check(context);
 
   if (!authenticated) {

@@ -6,7 +6,7 @@ export default function CategoryCreate() {
   return <AntdCreateInferencer />;
 }
 
-export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { authenticated, redirectTo } = await authProvider.check(context);
 
   if (!authenticated) {

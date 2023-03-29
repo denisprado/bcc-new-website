@@ -6,7 +6,7 @@ export default function CategoryEdit() {
   return <AntdEditInferencer />;
 }
 
-export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { authenticated, redirectTo } = await authProvider.check(context);
 
   if (!authenticated) {

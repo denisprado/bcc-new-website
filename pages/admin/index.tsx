@@ -15,7 +15,7 @@ type AppPropsWithLayout = AppProps & {
 function Admin({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
 
 
-	return <NavigateToResource resource="blog_posts" />;
+	return <NavigateToResource resource="posts" />;
 }
 
 Admin.noLayout = true

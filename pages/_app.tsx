@@ -13,8 +13,10 @@ import "@refinedev/antd/dist/reset.css";
 import { dataProvider } from "@refinedev/supabase";
 import { authProvider } from "src/authProvider";
 import { supabaseClient } from "src/utility";
-import { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode, useState } from "react";
 import '../src/styles/styles.css';
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	noLayout?: boolean;
@@ -26,10 +28,18 @@ type AppPropsWithLayout = AppProps & {
 };
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
+	const [queryClient] = useState(() => new QueryClient())
 	const renderComponent = () => {
 		const getLayout = Component.getLayout ?? ((page) => page)
 		if (Component.noLayout) {
-			return getLayout(<Component {...pageProps} />);
+			return (
+				<QueryClientProvider client={queryClient}>
+					<Hydrate state={pageProps.dehydratedState}>
+						{getLayout(<Component {...pageProps} />)}
+					</Hydrate>
+					<ReactQueryDevtools />
+				</QueryClientProvider>
+			);
 		}
 
 		return (
@@ -50,21 +60,21 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
 						notificationProvider={notificationProvider}
 						resources={[
 							{
-								name: "blog_posts",
-								list: "/blog-posts",
-								create: "/blog-posts/create",
-								edit: "/blog-posts/edit/:id",
-								show: "/blog-posts/show/:id",
+								name: "services",
+								list: "/services",
+								create: "/services/create",
+								edit: "/services/edit/:id",
+								show: "/services/show/:id",
 								meta: {
 									canDelete: true,
 								},
 							},
 							{
-								name: "categories",
-								list: "/categories",
-								create: "/categories/create",
-								edit: "/categories/edit/:id",
-								show: "/categories/show/:id",
+								name: "posts",
+								list: "/posts",
+								create: "/posts/create",
+								edit: "/posts/edit/:id",
+								show: "/posts/show/:id",
 								meta: {
 									canDelete: true,
 								},

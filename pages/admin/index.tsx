@@ -1,22 +1,17 @@
-import {
-	NavigateToResource
-} from "@refinedev/nextjs-router";
+import { NavigateToResource } from "@refinedev/nextjs-router";
 import type { NextPage } from "next";
-import { AppProps } from "next/app";
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-	noLayout?: boolean;
+export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
+  noLayout?: boolean;
 };
 
-type AppPropsWithLayout = AppProps & {
-	Component: NextPageWithLayout;
-};
+// type AppPropsWithLayout = AppProps & {
+// 	Component: NextPageWithLayout;
+// };
 
-function Admin({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
-
-
-	return <NavigateToResource resource="posts" />;
+function Admin(): JSX.Element {
+  return <NavigateToResource resource="posts" />;
 }
 
-Admin.noLayout = true
+Admin.noLayout = true;
 export default Admin;

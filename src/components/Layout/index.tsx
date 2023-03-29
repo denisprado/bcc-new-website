@@ -2,7 +2,7 @@ import Footer from "@components/Footer";
 import { ReactNode } from "react";
 import Contact from "@components/Contact";
 import Box from "@components/Box";
-import ClientHeader from "@components/Header";
+import ClientHeader from "../ClientHeader";
 
 interface LayoutProps {
   children: ReactNode;

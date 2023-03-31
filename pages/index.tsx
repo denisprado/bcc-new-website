@@ -13,6 +13,7 @@ import SessionName from "@components/SessionName";
 import useProjectsCategories from "src/hooks/useProjectsCategories";
 import useProjects from "src/hooks/useProjects";
 import useServiceCategories from "src/hooks/useServicesCategories";
+import Link from "next/link";
 
 export default function Home() {
   const { data: allCategories } = useProjectsCategories();
@@ -74,9 +75,9 @@ export default function Home() {
             <Box className="flex gap-2 my-4">
               {allServiceCategories ? (
                 allServiceCategories?.map((cat) => (
-                  <Button type={"page"} key={cat.id}>
-                    {cat.title}
-                  </Button>
+                  <Link key={cat.id} href={`services/${cat.id}`}>
+                    <Button type={"page"}>{cat.title}</Button>
+                  </Link>
                 ))
               ) : (
                 <></>

@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import Image from "next/image";
-import logo from "../../../public/structuralImages/logo.png";
+import logo from "public/structuralImages/logo.png";
 import Link from "next/link";
 
 const ClientHeader: FunctionComponent = () => {
@@ -15,7 +15,7 @@ const ClientHeader: FunctionComponent = () => {
         <div className="flex-none">
           <ul className="px-5 menu menu-horizontal text-base-100">
             <li>
-              <Link className="hover:text-accent" href={""}>
+              <Link className="hover:text-accent" href={"/about"}>
                 Quem somos
               </Link>
             </li>

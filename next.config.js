@@ -13,4 +13,14 @@ module.exports = {
     "rc-pagination",
     "rc-picker",
   ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "emuuocvkyaoflsbclvbr.supabase.co",
+        port: "",
+        pathname: "/storage/**",
+      },
+    ],
+  },
 };

@@ -15,17 +15,19 @@ const ClientHeader: FunctionComponent = () => {
         <div className="flex-none">
           <ul className="px-5 menu menu-horizontal text-base-100">
             <li>
-              <a className="hover:text-accent">
-                <Link href={""}>Quem somos</Link>
-              </a>
+              <Link className="hover:text-accent" href={""}>
+                Quem somos
+              </Link>
             </li>
             <li>
-              <a className="hover:text-accent">
-                <Link href={"services"}>O que fazemos</Link>
-              </a>
+              <Link className="hover:text-accent" href={"/services"}>
+                O que fazemos
+              </Link>
             </li>
             <li>
-              <a className="hover:text-accent">Projetos & cia</a>
+              <Link href={"/projects"} className="hover:text-accent">
+                Projetos & cia
+              </Link>
             </li>
           </ul>
         </div>

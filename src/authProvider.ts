@@ -54,6 +54,43 @@ export const authProvider: AuthBindings = {
       redirectTo: "/login",
     };
   },
+  register: async (params) => {
+    if (params.email && params.password) {
+      localStorage.setItem("email", params.email);
+      return {
+        success: true,
+        redirectTo: "/",
+      };
+    }
+    return {
+      success: false,
+      error: new Error("Invalid email or password"),
+    };
+  },
+  updatePassword: async (params) => {
+    if (params.newPassword) {
+      //we can update password here
+      return {
+        success: true,
+      };
+    }
+    return {
+      success: false,
+      error: new Error("Invalid password"),
+    };
+  },
+  forgotPassword: async (params) => {
+    if (params.email) {
+      //we can send email with reset password link here
+      return {
+        success: true,
+      };
+    }
+    return {
+      success: false,
+      error: new Error("Invalid email"),
+    };
+  },
   check: async (ctx) => {
     const { token } = nookies.get(ctx);
     const { data } = await supabaseClient.auth.getUser(token);

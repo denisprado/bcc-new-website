@@ -7,7 +7,6 @@ import { ReactElement } from "react";
 import useServiceCategoriesById from "src/hooks/useServiceCategoriesById";
 import useServiceByCategory from "src/hooks/useServices";
 import useServiceCategories from "src/hooks/useServicesCategories";
-
 function ServicePage() {
   const router = useRouter();
   const { categoryId } = router.query;
@@ -20,7 +19,6 @@ function ServicePage() {
       ? categoryId
       : catInitial;
   const { data: services, isLoading, isError } = useServiceByCategory(id);
-
   const { data: category } = useServiceCategoriesById(id);
 
   if (isLoading) {

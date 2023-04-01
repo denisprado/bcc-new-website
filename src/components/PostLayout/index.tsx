@@ -1,3 +1,5 @@
+import Box from "@components/Box";
+import VideoHero from "@components/VideoHero";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -20,23 +22,35 @@ export default function PostLayout({ children }: LayoutProps) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center w-full">
-      <div className="my-4 tabs">
-        {postCategories?.map((cat) => {
-          const tabStyle =
-            categoryId === cat.id ? "tab-active text-primary" : "";
-          return (
-            <Link
-              href={`${cat.id}`}
-              className={`${tabStyle} tab tab-bordered tab-lg`}
-              key={cat.id}
-            >
-              {cat.description}
-            </Link>
-          );
-        })}
+    <Box color="neutral" className="w-full">
+      <VideoHero
+        text={""}
+        hasButton={false}
+        buttonLabel={"Saiba mais"}
+        buttonHref={"#serv"}
+        videoUrl={
+          "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/projetos.mp4"
+        }
+      />
+
+      <div className="flex flex-col items-center justify-center w-full">
+        <div className="my-4 tabs">
+          {postCategories?.map((cat) => {
+            const tabStyle =
+              categoryId === cat.id ? "tab-active text-primary" : "";
+            return (
+              <Link
+                href={`${cat.id}`}
+                className={`${tabStyle} tab tab-bordered tab-lg`}
+                key={cat.id}
+              >
+                {cat.description}
+              </Link>
+            );
+          })}
+        </div>
+        {children}
       </div>
-      {children}
-    </div>
+    </Box>
   );
 }

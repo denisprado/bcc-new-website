@@ -13,6 +13,7 @@ import useProjectsCategories from "src/hooks/useProjectsCategories";
 import useProjects from "src/hooks/useProjects";
 import useServiceCategories from "src/hooks/useServicesCategories";
 import Link from "next/link";
+import VideoHero from "@components/VideoHero";
 
 export default function Home() {
   const { data: allCategories } = useProjectsCategories();
@@ -22,37 +23,20 @@ export default function Home() {
   return (
     <Box color="neutral" className="w-full">
       {/* // Hero */}
-
-      <header className="relative flex m-4 min-h-[486px] justify-center h-screen overflow-hidden">
-        <Box className="container bg-transparent pt-56 mr-0 bg-bottom relative z-30 ">
-          <div className="flex-col w-3/6 p-5 lg:flex-row-reverse">
-            <Box className="bg-primary opacity-90 px-6 pt-6 pb-8 rounded-md">
-              <h1 className="text-6xl font-light fotn mb-8 drop-shadow-2xl">
-                Criando valor junto às tecnologias&nbsp;emergentes&nbsp;verdes
-                e&nbsp;de&nbsp;baixo&nbsp;carbono
-              </h1>
-              <Button type={"cta"}>
-                <Link href={"#serv"}>Saiba mais</Link>
-              </Button>
-            </Box>
-          </div>
-        </Box>
-        <video
-          autoPlay
-          loop
-          muted
-          className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
-        >
-          <source
-            src="https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/pagina-inicial.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </header>
+      <VideoHero
+        text={
+          "Criando valor junto às tecnologias\xa0emergentes\xa0verdes e\xa0de\xa0baixo\xa0carbono"
+        }
+        hasButton={true}
+        buttonLabel={"Saiba mais"}
+        buttonHref={"#serv"}
+        videoUrl={
+          "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/pagina-inicial.mp4"
+        }
+      />
 
       {/**  O que fazemos */}
-      <Box className="mx-4">
+      <Box className="mx-4" color="illustrated">
         <a id="serv" />
         <Box
           color="neutral"
@@ -95,7 +79,7 @@ export default function Home() {
         </Box>
       </Box>
       {/** quem somos */}
-      <Box className="mx-4">
+      <Box className="mx-4" color="illustrated">
         <Box
           color="neutral"
           className="container grid grid-cols-2 gap-4 m-4 mx-auto  min-h-[500px]"
@@ -108,9 +92,15 @@ export default function Home() {
             </h2>
 
             <Box className="flex gap-2 my-4">
-              <Button type={"page"}>Nossa equipe</Button>
-              <Button type={"page"}>Nossos valores</Button>
-              <Button type={"page"}>Nossa história</Button>
+              <Link href={`about`}>
+                <Button type={"page"}>Nossa equipe</Button>
+              </Link>
+              <Link href={`about`}>
+                <Button type={"page"}>Nossos valores</Button>
+              </Link>
+              <Link href={`about`}>
+                <Button type={"page"}>Nossa história</Button>
+              </Link>
             </Box>
           </Box>
 

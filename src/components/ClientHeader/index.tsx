@@ -4,12 +4,18 @@ import logo from "public/structuralImages/logo.png";
 import Link from "next/link";
 
 const ClientHeader: FunctionComponent = () => {
+  const getWidthLogo = (h: number) => h * 3.55;
   return (
     <>
-      <div className="p-5 h-28 navbar bg-secondary">
+      <div className="p-5 h-20 navbar bg-secondary">
         <div className="flex-1">
           <Link href={"/"}>
-            <Image width={199} height={56} src={logo} alt="BCC logo" />
+            <Image
+              width={getWidthLogo(52)}
+              height={52}
+              src={logo}
+              alt="BCC logo"
+            />
           </Link>
         </div>
         <div className="flex-none">

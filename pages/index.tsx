@@ -1,5 +1,4 @@
 import Box from "@components/Box";
-import bgImage from "public/structuralImages/hero-bg.png";
 import eletricCar from "public/structuralImages/eletricCar.jpg";
 import robson from "public/structuralImages/robson.jpg";
 import edgar from "public/structuralImages/edgar.jpg";
@@ -24,28 +23,37 @@ export default function Home() {
     <Box color="neutral" className="w-full">
       {/* // Hero */}
 
-      <Box color="primary" className="flex flex-row m-4 min-h-[600px]">
-        <div className="bg-bottom hero">
-          <div className="flex-col pb-0 hero-content lg:flex-row-reverse">
-            <Image
-              width={645}
-              height={610}
-              src={bgImage}
-              alt="Geradores de energia eólica"
-            />
-            <div>
-              <h1 className="py-6 text-5xl">
-                Criando valor junto às tecnologias emergentes verdes e de baixo
-                carbono
+      <header className="relative flex m-4 min-h-[486px] justify-center h-screen overflow-hidden">
+        <Box className="container bg-transparent pt-56 mr-0 bg-bottom relative z-30 ">
+          <div className="flex-col w-3/6 p-5 lg:flex-row-reverse">
+            <Box className="bg-primary opacity-90 px-6 pt-6 pb-8 rounded-md">
+              <h1 className="text-6xl font-light fotn mb-8 drop-shadow-2xl">
+                Criando valor junto às tecnologias&nbsp;emergentes&nbsp;verdes
+                e&nbsp;de&nbsp;baixo&nbsp;carbono
               </h1>
-              <Button type={"cta"}>Saiba mais</Button>
-            </div>
+              <Button type={"cta"}>
+                <Link href={"#serv"}>Saiba mais</Link>
+              </Button>
+            </Box>
           </div>
-        </div>
-      </Box>
+        </Box>
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+        >
+          <source
+            src="https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/pagina-inicial.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </header>
 
       {/**  O que fazemos */}
       <Box className="mx-4">
+        <a id="serv" />
         <Box
           color="neutral"
           className="container grid grid-cols-2 gap-4 m-4 mx-auto  min-h-[500px]"

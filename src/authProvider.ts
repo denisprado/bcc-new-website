@@ -54,22 +54,36 @@ export const authProvider: AuthBindings = {
       redirectTo: "/login",
     };
   },
-  register: async (params) => {
-    if (params.email && params.password) {
-      localStorage.setItem("email", params.email);
-      await supabaseClient.auth.signUp({
-        email: params.email,
-        password: params.password,
+  register: async ({ email, password }) => {
+    try {
+      const { data, error } = await supabaseClient.auth.signUp({
+        email,
+        password,
       });
 
+      if (error) {
+        return {
+          success: false,
+          error,
+        };
+      }
+
+      if (data) {
+        return {
+          success: true,
+        };
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       return {
-        success: true,
-        redirectTo: "/login",
+        success: false,
+        error,
       };
     }
+
     return {
       success: false,
-      error: new Error("Invalid email or password"),
+      error: new Error("Register failed"),
     };
   },
   updatePassword: async (params) => {

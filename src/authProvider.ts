@@ -57,9 +57,14 @@ export const authProvider: AuthBindings = {
   register: async (params) => {
     if (params.email && params.password) {
       localStorage.setItem("email", params.email);
+      await supabaseClient.auth.signUp({
+        email: params.email,
+        password: params.password,
+      });
+
       return {
         success: true,
-        redirectTo: "/",
+        redirectTo: "/login",
       };
     }
     return {

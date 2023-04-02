@@ -7,6 +7,12 @@ export default function Login() {
   return (
     <AuthPage
       type="login"
+      providers={[
+        {
+          name: "google",
+          label: "Sign in with Google",
+        },
+      ]}
       formProps={{
         initialValues: {
           email: "info@refine.dev",

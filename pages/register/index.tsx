@@ -7,10 +7,16 @@ export default function Register() {
   return (
     <AuthPage
       type="register"
+      providers={[
+        {
+          name: "google",
+          label: "Sign in with Google",
+        },
+      ]}
       formProps={{
         initialValues: {
-          email: "info@refine.dev",
-          password: "refine-supabase",
+          email: "denisforigo@gmail.com",
+          password: "clipper02",
         },
       }}
     />

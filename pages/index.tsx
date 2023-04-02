@@ -31,7 +31,7 @@ export default function Home() {
         buttonLabel={"Saiba mais"}
         buttonHref={"#serv"}
         videoUrl={
-          "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/pagina-inicial.mp4"
+          "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/pagina-inicial-comp.mp4"
         }
       />
 

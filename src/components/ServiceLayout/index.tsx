@@ -38,7 +38,7 @@ export default function ServiceLayout({ children }: LayoutProps) {
           buttonLabel={"O que fazemos"}
           buttonHref={"#serv"}
           videoUrl={
-            "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/que-fazemos.mp4"
+            "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/que-fazemos-comp.mp4"
           }
         />
       </Box>
@@ -48,7 +48,9 @@ export default function ServiceLayout({ children }: LayoutProps) {
             categoryId === cat.id ? "tab-active text-primary" : "";
           return (
             <a className={`${tabStyle} tab tab-bordered tab-lg`} key={cat.id}>
-              <Link href={`${cat.id}`}>{cat.title}</Link>
+              <Link scroll={false} href={`${cat.id}`}>
+                {cat.title}
+              </Link>
             </a>
           );
         })}

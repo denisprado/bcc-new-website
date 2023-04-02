@@ -19,7 +19,7 @@ export default function About() {
         buttonLabel={"Quem somos"}
         buttonHref={"#serv"}
         videoUrl={
-          "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/quem-somos.mp4"
+          "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/quem-somos-comp.mp4"
         }
       />
       {/** quem somos */}

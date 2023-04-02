@@ -29,7 +29,7 @@ export default function PostLayout({ children }: LayoutProps) {
         buttonLabel={"Saiba mais"}
         buttonHref={"#serv"}
         videoUrl={
-          "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/projetos.mp4"
+          "https://emuuocvkyaoflsbclvbr.supabase.co/storage/v1/object/public/videos/projetos-comp.mp4"
         }
       />
 
@@ -40,6 +40,7 @@ export default function PostLayout({ children }: LayoutProps) {
               categoryId === cat.id ? "tab-active text-primary" : "";
             return (
               <Link
+                scroll={false}
                 href={`${cat.id}`}
                 className={`${tabStyle} tab tab-bordered tab-lg`}
                 key={cat.id}

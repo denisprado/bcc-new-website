@@ -5,7 +5,12 @@ export function getPostCategoriesById(
   client: typeof supabaseClient,
   id: string
 ) {
-  return client.from("PostCategories").select(`*`).eq("id", id).throwOnError();
+  return client
+    .from("PostCategories")
+    .select(`*`)
+    .eq("id", id)
+    .single()
+    .throwOnError();
 }
 
 function usePostCategoriesById(id: string) {

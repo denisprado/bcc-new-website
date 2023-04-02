@@ -38,9 +38,10 @@ function ProjectPage() {
             return (
               <Card
                 key={project.id}
-                sessionName={category && category[0]?.description}
+                sessionName={category && category?.description}
                 title={project.title}
                 description={project.description}
+                buttonHref={`page/${project.id}`}
               />
             );
           })}

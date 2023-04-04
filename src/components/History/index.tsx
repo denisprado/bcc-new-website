@@ -4,11 +4,11 @@ import useHistory from "src/hooks/useHistory";
 
 export default function History() {
   const { data: history } = useHistory();
-  const [active, setActive] = useState<string | number | undefined>(2018);
+  const [active, setActive] = useState<string | undefined>("2018");
   const historyGrouped = history
     ? history.reduce((acc, obj) => {
-        const ano = new Date(obj.date).getFullYear();
-        const grupo = acc.find((g: { ano: number }) => g.ano === ano);
+        const ano = new Date(obj.date).getFullYear().toString();
+        const grupo = acc.find((g: { ano: string }) => g.ano === ano);
         if (grupo) {
           grupo.itens.push(obj);
         } else {
@@ -34,20 +34,27 @@ export default function History() {
           {historyGrouped?.map(
             (hist: {
               id: Key | null | undefined;
-              ano: { toString: () => string | undefined };
+              ano: string;
               itens: { id: string; description: string }[];
             }) => {
               return (
                 hist && (
                   <div
                     key={hist.id}
-                    id={hist.ano ? hist.ano.toString() : ""}
+                    id={hist.ano ? hist.ano : ""}
                     className="carousel-item w-full"
                   >
-                    <div className="flex flex-col p-5 gap-8 justify-start items-start">
+                    <div className="flex flex-col p-5 gap-8 justify-start items-start bg-primary">
+                      <h3 className="font-bold text-2xl text-accent">
+                        {hist.ano ? hist.ano : ""}
+                      </h3>
+
                       {hist &&
                         hist.itens.map((h) => (
-                          <div className="text-xl" key={hist.id}>
+                          <div
+                            className="text-xl text-white border-l-4 border-white hover:border-accent pointer-events-none pl-4"
+                            key={hist.id}
+                          >
                             {h.description}
                           </div>
                         ))}
@@ -62,18 +69,20 @@ export default function History() {
           {historyGrouped?.map(
             (hist: {
               id: Key | null | undefined;
-              ano: { toString: () => string | undefined };
+              ano: string;
               itens: { id: string; description: string }[];
             }) => (
               <a
                 key={hist.id}
                 href={`#${hist.ano}`}
-                onClick={() => setActive(hist.ano.toString())}
-                className={`btn btn-lg btn-primary px-14 ${
-                  active === hist.ano ? "btn-accent" : "btn-primary"
+                onClick={() => setActive(hist.ano)}
+                className={`btn btn-lg px-14 ${
+                  active === hist.ano
+                    ? "border-accent btn-accent text-white"
+                    : "btn-primary btn-outline"
                 }`}
               >
-                {hist && hist.ano.toString()}
+                {hist && hist.ano}
               </a>
             )
           )}

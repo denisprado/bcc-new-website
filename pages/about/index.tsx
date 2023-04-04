@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ReactElement } from "react";
 import Layout from "@components/Layout";
 import VideoHero from "@components/VideoHero";
+import History from "@components/History";
 
 export default function About() {
   return (
@@ -125,9 +126,15 @@ export default function About() {
 
       <Box
         color={"neutral"}
-        className="container relative w-full m-4 min-h-[676px] max-w-[1394px] mx-auto grayscale opacity-50"
+        className="container relative w-full m-4 min-h-[676px] max-w-[1394px] mx-auto"
       >
         <Image fill={true} src={nossosValores} alt="Nossos valores" />
+      </Box>
+
+      {/* History */}
+
+      <Box color="neutral">
+        <History />
       </Box>
     </Box>
   );

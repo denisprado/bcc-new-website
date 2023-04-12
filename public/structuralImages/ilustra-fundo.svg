@@ -11,10 +11,10 @@
       }
 
       .cls-3 {
-        stroke: #4766a7;
+        stroke: #3150a4;
         stroke-linecap: round;
         stroke-linejoin: round;
-        stroke-width: .75px;
+        stroke-width: .50px;
       }
     </style>
     <clipPath id="clippath">

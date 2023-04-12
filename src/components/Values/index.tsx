@@ -5,15 +5,15 @@ import logo from "public/structuralImages/primary-negative-large.png";
 import LogoValues from "./LogoValues";
 
 const Circle = () => (
-  <span className="relative flex h-12 w-12">
-    <span className="relative inline-flex rounded-full h-12 w-12 bg-transparent border-info border"></span>
+  <span className="relative flex h-10 w-10">
+    <span className="relative inline-flex rounded-full h-10 w-10 bg-transparent border-info border"></span>
   </span>
 );
 
 const CircleActive = () => (
-  <span className="relative flex h-12 w-12">
+  <span className="relative flex h-10 w-10">
     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-    <span className="relative inline-flex rounded-full h-12 w-12 bg-accent"></span>
+    <span className="relative inline-flex rounded-full h-10 w-10 bg-accent"></span>
   </span>
 );
 export type paths = "0" | "1" | "2" | "3" | "4" | "5" | "6";
@@ -36,7 +36,7 @@ const Values: FunctionComponent = () => {
       >
         <Box className="flex-1">{isActive ? <CircleActive /> : <Circle />}</Box>
         <p
-          className={`text-3xl font-bold ${
+          className={`text-3xl font-semibold ${
             isActive ? "text-white" : "text-info"
           }`}
           style={{ transition: "all 0.5s ease-in-out" }}
@@ -48,7 +48,7 @@ const Values: FunctionComponent = () => {
   };
 
   return (
-    <Box color={"neutral"} className={"grid grid-cols-3 gap-5 my-5 box-border"}>
+    <Box color={"neutral"} className={"grid grid-cols-3 gap-2 box-border"}>
       <div
         className={`relative flex items-center justify-center border bg-accent rounded-xl bg-[url("/structuralImages/ilustra-fundo-white.svg")] bg-cover`}
       >

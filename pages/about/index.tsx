@@ -121,17 +121,25 @@ export default function About() {
           </Box>
         </Box>
       </Box>
-
-      {/* Nossos valores */}
-
-      <Box className="container relative w-full my-36 mx-auto">
-        <Values />
+      <Box color="illustrated" className="w-full min-h-[144px]">
+        &nbsp;
       </Box>
+      <Box color="illustrated" className="w-full min-h-screen">
+        {/* Nossos valores */}
+        <Box className="container p-5  bg-white mx-auto relative w-full">
+          <Values />
+        </Box>
+        <Box color="illustrated" className="w-full min-h-[144px]">
+          &nbsp;
+        </Box>
+        {/* History */}
 
-      {/* History */}
-
-      <Box color="neutral" className="py-36">
-        <History />
+        <Box className="container p-5  bg-white mx-auto relative w-full">
+          <History />
+        </Box>
+        <Box color="illustrated" className="w-full min-h-[144px]">
+          &nbsp;
+        </Box>
       </Box>
     </Box>
   );

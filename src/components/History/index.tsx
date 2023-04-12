@@ -19,9 +19,9 @@ export default function History() {
     : null;
 
   return (
-    <div className="flex flex-col w-full mx-auto justify-center items-center my-16">
+    <div className="flex flex-col w-full mx-auto justify-center items-center">
       <Box
-        className="container w-full flex flex-col gap-4 justify-start items-stretch mx-auto min-h-[500px]"
+        className="container w-full flex flex-col-reverse gap-4 justify-start items-stretch mx-auto"
         color="neutral"
       >
         <div className="carousel">
@@ -36,12 +36,9 @@ export default function History() {
                   <div
                     key={hist.id}
                     id={hist.ano ? hist.ano : ""}
-                    className="carousel-item w-full"
+                    className="carousel-item scroll-my-[24rem] w-full"
                   >
                     <div className="flex flex-col gap-4 justify-start">
-                      <h3 className="font-bold text-2xl text-accent">
-                        {hist.ano ? hist.ano : ""}
-                      </h3>
                       <div className="flex flex-row items-stretch h-full gap-4">
                         {hist &&
                           hist.itens.map((h) => (

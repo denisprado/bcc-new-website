@@ -13,7 +13,7 @@ const Box: FunctionComponent<BoxProps> = ({
   const bgColor = {
     primary: "bg-primary text-white",
     illustrated:
-      'bg-primary text-white bg-[url("/structuralImages/ilustra-fundo.svg")] bg-contain',
+      'bg-primary text-white bg-[url("/structuralImages/ilustra-fundo.svg")] bg-cover',
     secondary: "bg-secondary text-white",
     accent: "bg-accent text-white",
     neutral: "bg-neutral text-primary",

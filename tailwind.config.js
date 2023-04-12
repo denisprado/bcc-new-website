@@ -31,7 +31,7 @@ module.exports = {
           white: "fff",
           neutral: "#fff",
           "base-100": "#fff",
-          info: "#4766a7",
+          info: "#385cbc",
           success: "#3ABA90",
           warning: "#F3C178",
           error: "#FE5E41",

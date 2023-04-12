@@ -42,9 +42,10 @@ function VideoHero({
         autoPlay
         loop
         muted
+        preload="metadata"
         className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
       >
-        <source src={videoUrl} type="video/mp4" />
+        <source src={videoUrl + "#t=0.1"} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </header>

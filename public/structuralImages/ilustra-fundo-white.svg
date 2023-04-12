@@ -11,7 +11,7 @@
       }
 
       .cls-3 {
-        stroke: #4766a7;
+        stroke: #93C96D;
         stroke-linecap: round;
         stroke-linejoin: round;
         stroke-width: .75px;

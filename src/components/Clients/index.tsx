@@ -32,7 +32,9 @@ const Clients: FunctionComponent = () => {
       color={"neutral"}
       className={"flex gap-[19.2px] my-5 flex-wrap box-border "}
     >
-      <div className="relative flex items-center justify-center border bg-accent aspect-square h-60 rounded-xl">
+      <div
+        className={`relative flex items-center justify-center border bg-accent aspect-square h-60 rounded-xl bg-[url("/structuralImages/ilustra-fundo-white.svg")] bg-cover`}
+      >
         <p className={"text-white font-light text-center text-4xl"}>
           Nossos
           <br />

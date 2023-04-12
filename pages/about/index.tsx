@@ -1,12 +1,12 @@
 import Box from "@components/Box";
-import robson from "public/structuralImages/robson.jpg";
-import edgar from "public/structuralImages/edgar.jpg";
-import nossosValores from "public/structuralImages/nossos-valores.png";
-import Image from "next/image";
-import { ReactElement } from "react";
-import Layout from "@components/Layout";
-import VideoHero from "@components/VideoHero";
 import History from "@components/History";
+import Layout from "@components/Layout";
+import Values from "@components/Values";
+import VideoHero from "@components/VideoHero";
+import Image from "next/image";
+import edgar from "public/structuralImages/edgar.jpg";
+import robson from "public/structuralImages/robson.jpg";
+import { ReactElement } from "react";
 
 export default function About() {
   return (
@@ -24,7 +24,7 @@ export default function About() {
         }
       />
       {/** quem somos */}
-      <Box color={"neutral"} className="my-4">
+      <Box className="my-4">
         <a id="serv" />
         <Box
           color="neutral"
@@ -33,7 +33,7 @@ export default function About() {
           <Box color="illustrated" className="flex justify-center">
             <Box
               color="illustrated"
-              className="container grid grid-cols-2 min-h-[609px]"
+              className="container grid grid-cols-2 min-h-[684px]"
             >
               <Box color="neutral" className="relative">
                 <Image
@@ -124,16 +124,13 @@ export default function About() {
 
       {/* Nossos valores */}
 
-      <Box
-        color={"neutral"}
-        className="container relative w-full m-4 min-h-[676px] max-w-[1394px] mx-auto"
-      >
-        <Image fill={true} src={nossosValores} alt="Nossos valores" />
+      <Box className="container relative w-full my-36 mx-auto">
+        <Values />
       </Box>
 
       {/* History */}
 
-      <Box color="neutral">
+      <Box color="neutral" className="py-36">
         <History />
       </Box>
     </Box>

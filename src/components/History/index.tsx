@@ -22,15 +22,11 @@ export default function History() {
 
   return (
     <div className="flex flex-col w-full mx-auto justify-center items-center my-16">
-      <h2 className="text-accent uppercase font-bold text-4xl my-8">
-        Nossa história
-      </h2>
-
       <Box
-        className="w-6/12 flex flex-row-reverse justify-start items-stretch mx-auto min-h-[500px]"
+        className="container w-full flex flex-col gap-4 justify-start items-stretch mx-auto min-h-[500px]"
         color="neutral"
       >
-        <div className="carousel mx-5 rounded-lg border-2">
+        <div className="carousel">
           {historyGrouped?.map(
             (hist: {
               id: Key | null | undefined;
@@ -44,20 +40,22 @@ export default function History() {
                     id={hist.ano ? hist.ano : ""}
                     className="carousel-item w-full"
                   >
-                    <div className="flex flex-col p-5 gap-8 justify-start items-start bg-primary">
+                    <div className="flex flex-col gap-4 justify-start">
                       <h3 className="font-bold text-2xl text-accent">
                         {hist.ano ? hist.ano : ""}
                       </h3>
-
-                      {hist &&
-                        hist.itens.map((h) => (
-                          <div
-                            className="text-xl text-white border-l-4 border-white hover:border-accent pointer-events-none pl-4"
-                            key={hist.id}
-                          >
-                            {h.description}
-                          </div>
-                        ))}
+                      <div className="flex flex-row items-stretch h-full gap-4">
+                        {hist &&
+                          hist.itens.map((h) => (
+                            <div
+                              className="flex-1 text-xl rounded-lg  text-white  border-white hover:border-accent bg-primary 
+															pointer-events-none p-5"
+                              key={hist.id}
+                            >
+                              {h.description}
+                            </div>
+                          ))}
+                      </div>
                     </div>
                   </div>
                 )
@@ -65,7 +63,15 @@ export default function History() {
             }
           )}
         </div>
-        <div className="flex flex-col justify-start w-full gap-2 ">
+        <div className="flex flex-row justify-start  w-full gap-2">
+          <div
+            className={`relative py-5 px-8 flex items-center justify-center border bg-accent rounded-xl bg-[url("/structuralImages/ilustra-fundo-white.svg")] bg-cover`}
+          >
+            <a id="values" />
+            <p className={"text-white font-light text-center text-4xl"}>
+              Nossa história
+            </p>
+          </div>
           {historyGrouped?.map(
             (hist: {
               id: Key | null | undefined;
@@ -76,7 +82,7 @@ export default function History() {
                 key={hist.id}
                 href={`#${hist.ano}`}
                 onClick={() => setActive(hist.ano)}
-                className={`btn btn-lg px-14 ${
+                className={`rounded-lg flex justify-center items-center border text-4xl font-light flex-1 py-12 ${
                   active === hist.ano
                     ? "border-accent btn-accent text-white"
                     : "btn-primary btn-outline"

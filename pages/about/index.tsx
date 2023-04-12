@@ -122,7 +122,7 @@ export default function About() {
         </Box>
       </Box>
       <Box color="illustrated" className="w-full min-h-[144px]">
-        &nbsp;
+        <a id="valores" />
       </Box>
       <Box color="illustrated" className="w-full min-h-screen">
         {/* Nossos valores */}
@@ -130,7 +130,7 @@ export default function About() {
           <Values />
         </Box>
         <Box color="illustrated" className="w-full min-h-[144px]">
-          &nbsp;
+          <a id="historia" />
         </Box>
         {/* History */}
 

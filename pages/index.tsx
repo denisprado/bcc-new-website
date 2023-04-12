@@ -95,10 +95,10 @@ export default function Home() {
               <Link href={`about`}>
                 <Button type={"page"}>Nossa equipe</Button>
               </Link>
-              <Link href={`about`}>
+              <Link href={`about#valores`}>
                 <Button type={"page"}>Nossos valores</Button>
               </Link>
-              <Link href={`about`}>
+              <Link href={`about#historia`}>
                 <Button type={"page"}>Nossa história</Button>
               </Link>
             </Box>

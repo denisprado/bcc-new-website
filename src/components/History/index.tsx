@@ -24,7 +24,7 @@ export default function History() {
         className="container w-full flex flex-col-reverse gap-4 justify-start items-stretch mx-auto"
         color="neutral"
       >
-        <div className="carousel">
+        <div className="carousel scroll-pt-[24rem] snap-x">
           {historyGrouped?.map(
             (hist: {
               id: Key | null | undefined;
@@ -36,7 +36,7 @@ export default function History() {
                   <div
                     key={hist.id}
                     id={hist.ano ? hist.ano : ""}
-                    className="carousel-item scroll-my-[24rem] w-full"
+                    className="carousel-item w-full scroll-mt-[24rem] "
                   >
                     <div className="flex flex-col gap-4 justify-start">
                       <div className="flex flex-row items-stretch h-full gap-4">

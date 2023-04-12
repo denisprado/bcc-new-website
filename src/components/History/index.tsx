@@ -18,8 +18,6 @@ export default function History() {
       }, [])
     : null;
 
-  console.log(history, historyGrouped);
-
   return (
     <div className="flex flex-col w-full mx-auto justify-center items-center my-16">
       <Box
@@ -72,26 +70,28 @@ export default function History() {
               Nossa história
             </p>
           </div>
-          {historyGrouped?.map(
-            (hist: {
-              id: Key | null | undefined;
-              ano: string;
-              itens: { id: string; description: string }[];
-            }) => (
-              <a
-                key={hist.id}
-                href={`#${hist.ano}`}
-                onClick={() => setActive(hist.ano)}
-                className={`rounded-lg flex justify-center items-center border text-4xl font-light flex-1 py-12 ${
-                  active === hist.ano
-                    ? "border-accent btn-accent text-white"
-                    : "btn-primary btn-outline"
-                }`}
-              >
-                {hist && hist.ano}
-              </a>
-            )
-          )}
+          {historyGrouped
+            ?.sort()
+            .map(
+              (hist: {
+                id: Key | null | undefined;
+                ano: string;
+                itens: { id: string; description: string }[];
+              }) => (
+                <a
+                  key={hist.id}
+                  href={`#${hist.ano}`}
+                  onClick={() => setActive(hist.ano)}
+                  className={`rounded-lg flex justify-center items-center border text-4xl font-light flex-1 py-12 ${
+                    active === hist.ano
+                      ? "border-accent btn-accent text-white"
+                      : "btn-primary btn-outline"
+                  }`}
+                >
+                  {hist && hist.ano}
+                </a>
+              )
+            )}
         </div>
       </Box>
     </div>

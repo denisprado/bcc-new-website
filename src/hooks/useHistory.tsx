@@ -2,7 +2,7 @@ import { supabaseClient } from "src/utility";
 import { useQuery } from "react-query";
 
 export function getProjectsCategories(client: typeof supabaseClient) {
-  return client.from("History").select(`*`).throwOnError();
+  return client.from("History").select(`*`).throwOnError().order("date");
 }
 
 function useHistory() {

@@ -17,6 +17,7 @@ import { ReactElement, ReactNode, useState } from "react";
 import "../src/styles/styles.css";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import CookiesNotice from "@components/CookieConsent";
 
 export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
@@ -35,6 +36,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
       return (
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
+            <CookiesNotice />
             {getLayout(<Component {...pageProps} />)}
           </Hydrate>
           <ReactQueryDevtools />

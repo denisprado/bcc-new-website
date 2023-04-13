@@ -30,7 +30,7 @@ export default function About() {
           color="neutral"
           className="grid  grid-cols-1 grid-rows-2 gap-4 my-4 mx-auto"
         >
-          <Box color="illustrated" className="flex justify-center">
+          <Box color="illustrated" className="flex justify-center mx-4">
             <Box
               color="illustrated"
               className="container grid grid-cols-2 min-h-[684px]"
@@ -75,7 +75,7 @@ export default function About() {
               </Box>
             </Box>
           </Box>
-          <Box color="illustrated" className="flex justify-center">
+          <Box color="illustrated" className="flex justify-center mx-4">
             <Box
               color="illustrated"
               className="container grid grid-cols-2 min-h-[609px]"

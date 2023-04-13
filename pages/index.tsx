@@ -21,7 +21,7 @@ export default function Home() {
   const { data: allServiceCategories } = useServiceCategories();
 
   return (
-    <Box color="neutral" className="w-full">
+    <Box color="neutral" className="w-full ">
       {/* // Hero */}
       <VideoHero
         text={

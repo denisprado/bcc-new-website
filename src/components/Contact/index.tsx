@@ -1,45 +1,44 @@
 import Box from "@components/Box";
 import Button from "@components/Button";
+import axios, { AxiosResponse } from "axios";
 import Image from "next/image";
 import contactForm from "public/structuralImages/contact-image.jpg";
 import { useState } from "react";
 // import mailgun from 'mailgun-js';
+interface FormValues {
+  name: string;
+  email: string;
+  message: string;
+}
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [values, setValues] = useState<FormValues>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<string>("");
 
-  const handleSubmit = async (event: { preventDefault: () => void }) => {
-    event.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    // Configurar e enviar o e-mail aqui
-    // const mg = mailgun({
-    // 	apiKey: process?.env?.MAILGUN_API_KEY?.toString() ?? "",
-    // 	domain: process?.env?.MAILGUN_DOMAIN?.toString() ?? "",
-    // });
+    try {
+      const response: AxiosResponse<{ message: string }> = await axios.post(
+        "api/send-email",
+        values
+      );
 
-    // Configurar os detalhes do e-mail
-    // const mailData = {
-    // 	from: process.env.MAILGUN_FROM_EMAIL, // Substitua pelo seu próprio MAILGUN_FROM_EMAIL
-    // 	to: 'destinatario@exemplo.com', // Substitua pelo endereço de e-mail do destinatário
-    // 	subject: `Contato de ${name} - Site da Empresa`,
-    // 	text: message,
-    // };
+      setStatus(response.data.message);
+      setValues({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus("Error sending email");
+    }
+  };
 
-    // Enviar o e-mail
-    // mg.messages().send(mailData, (error, body) => {
-    // 	if (error) {
-    // 		console.log(error);
-    // 	} else {
-    // 		console.log(body);
-    // 	}
-    // });
-
-    // Limpar o formulário
-    setName("");
-    setEmail("");
-    setMessage("");
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   return (
@@ -62,26 +61,30 @@ const Contact = () => {
             <input
               type="text"
               placeholder="Nome"
-              className="w-full max-w-xs input input-bordered"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name="name"
+              className="w-full text-gray-500 max-w-xs input input-bordered"
+              value={values.name}
+              onChange={handleChange}
             />
             <input
               type="text"
               placeholder="Email"
-              className="w-full max-w-xs input input-bordered"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              className="w-full max-w-xs input input-bordered text-gray-500"
+              value={values.email}
+              onChange={handleChange}
             />
             <textarea
-              className="textarea textarea-bordered"
+              className="textarea textarea-bordered text-gray-500"
               placeholder="Mensagem"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              name="message"
+              value={values.message}
+              onChange={handleChange}
             ></textarea>
             <Button submit={true} type="cta">
               Enviar
             </Button>
+            <p>{status}</p>
           </Box>
         </form>
       </Box>

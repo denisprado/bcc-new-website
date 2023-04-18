@@ -72,7 +72,17 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                 },
               },
               {
-                name: "posts",
+                name: "PostCategories",
+                list: "/services",
+                create: "/services/create",
+                edit: "/services/edit/:id",
+                show: "/services/show/:id",
+                meta: {
+                  canDelete: true,
+                },
+              },
+              {
+                name: "Posts",
                 list: "/posts",
                 create: "/posts/create",
                 edit: "/posts/edit/:id",

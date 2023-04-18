@@ -10,7 +10,7 @@ export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
 // };
 
 function Admin(): JSX.Element {
-  return <NavigateToResource resource="posts" />;
+  return <NavigateToResource resource="Posts" />;
 }
 
 Admin.noLayout = true;

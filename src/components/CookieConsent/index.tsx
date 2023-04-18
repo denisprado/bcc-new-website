@@ -6,11 +6,16 @@ const CookiesNotice: React.FC = () => {
       location="bottom"
       buttonText="Tudo bem!"
       cookieName="myCookieConsent"
-      style={{ background: "#1a202c", textAlign: "center" }}
+      style={{
+        background: "#1e2a4d",
+        textAlign: "center",
+        opacity: "0.8",
+        padding: "20px",
+      }}
       buttonStyle={{
         color: "#fff",
         fontSize: "13px",
-        backgroundColor: "#3182ce",
+        backgroundColor: "#75b847",
         borderRadius: "5px",
       }}
       expires={150}

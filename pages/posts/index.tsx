@@ -1,6 +1,6 @@
 import { IPostCategory, IPosts } from "src/interfaces";
-
-import { useMany } from "@refinedev/core";
+import Image from "next/image";
+import { BaseKey, useMany } from "@refinedev/core";
 
 import {
   BooleanField,
@@ -19,13 +19,15 @@ export default function BlogPostList() {
     syncWithLocation: true,
   });
 
-  const categoryIds = tableProps?.dataSource?.map((item) =>
-    item.id_post_category ? item.id_post_category.id : ""
+  const categoryIds = tableProps?.dataSource?.map(
+    (item) => item.id_post_category
   ) ?? [""];
+
+  console.log(categoryIds);
 
   const { data, isLoading } = useMany<IPostCategory>({
     resource: "PostCategories",
-    ids: categoryIds,
+    ids: categoryIds as BaseKey[],
     queryOptions: {
       enabled: categoryIds.length > 0,
     },
@@ -63,7 +65,7 @@ export default function BlogPostList() {
           dataIndex="image"
           title="Image"
           render={(image) => {
-            return <img alt={image.name} src={image.url} />;
+            return <Image alt={image.name} src={image.url} />;
           }}
         />
         <Table.Column<IPosts>

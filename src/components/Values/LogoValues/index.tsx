@@ -7,12 +7,11 @@ type logoValuesProps = {
 export const LogoValues = ({ active }: logoValuesProps) => {
   const activeOpacity = "1";
   const opacity = "0.2";
-  console.log(active);
 
   return (
     <svg
-      width="348"
-      height="381"
+      width="100%"
+      height="100%"
       viewBox="0 0 348 381"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

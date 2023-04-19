@@ -31,13 +31,18 @@ function ServicePage() {
 
   return (
     <>
-      <div className="container grid grid-cols-3 m-4 min-h[120px] gap-4">
+      <div className="container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4">
         {services &&
           services.map((service) => {
             return (
-              <Box key={service.id} className={"p-10 flex flex-col gap-2"}>
+              <Box
+                key={service.id}
+                className={"p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-2"}
+              >
                 <h3 className="text-accent">{category && category[0].title}</h3>
-                <p className="text-3xl font-regular">{service.description}</p>
+                <p className="text-sm sm:text-md md:text-xl lg:text-2xl font-regular">
+                  {service.description}
+                </p>
               </Box>
             );
           })}

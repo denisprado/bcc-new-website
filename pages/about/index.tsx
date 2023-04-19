@@ -28,14 +28,17 @@ export default function About() {
         <a id="serv" />
         <Box
           color="neutral"
-          className="grid  grid-cols-1 grid-rows-2 gap-4 my-4 mx-auto"
+          className="grid grid-cols-1 grid-rows-2 gap-4 mx-auto my-4"
         >
           <Box color="illustrated" className="flex justify-center mx-4">
             <Box
               color="illustrated"
-              className="container grid grid-cols-2 min-h-[684px]"
+              className="container grid md:grid-cols-2 md:min-h-[684px]"
             >
-              <Box color="neutral" className="relative">
+              <Box
+                color="neutral"
+                className="relative aspect-square md:aspect-auto"
+              >
                 <Image
                   fill={true}
                   style={{ objectFit: "cover" }}
@@ -44,13 +47,13 @@ export default function About() {
                   alt="Foto de Robson Cruz"
                 />
               </Box>
-              <Box className="flex flex-col gap-4 p-14">
-                <h2 className="font-light text-7xl">Robson Cruz</h2>
-                <h3 className="text-accent text-2xl">
+              <Box className="flex flex-col gap-5 p-14">
+                <h2 className="font-thin text-8xl">Robson Cruz</h2>
+                <h3 className="text-3xl text-accent">
                   Experiência em Pesquisa e Desenvolvimento
                   de&nbsp;Sistemas&nbsp;de&nbsp;Powertrain
                 </h3>
-                <div className="flex flex-col gap-4 w-11/12">
+                <div className="flex flex-col w-11/12 gap-3">
                   <p>
                     Coordenou times globais (EUA, Alemanha, China) de
                     desenvolvimento de projetos de powertrain mais leves, com
@@ -78,15 +81,15 @@ export default function About() {
           <Box color="illustrated" className="flex justify-center mx-4">
             <Box
               color="illustrated"
-              className="container grid grid-cols-2 min-h-[609px]"
+              className="container grid  md:grid-cols-2 md:min-h-[684px]"
             >
-              <Box className="flex flex-col gap-4 p-14">
-                <h2 className="font-light text-7xl">Edgar Barassa</h2>
-                <h3 className="text-accent text-2xl">
+              <Box className="flex flex-col order-2 gap-4 p-14 md:order:1">
+                <h2 className="font-thin text-8xl">Edgar Barassa</h2>
+                <h3 className="text-3xl text-accent">
                   Experiência em Prospecção Tecnológica e
                   Governança&nbsp;para&nbsp;Ciência, Tecnologia e Inovação
                 </h3>
-                <div className="flex flex-col gap-4 w-11/12">
+                <div className="flex flex-col w-11/12 gap-3">
                   <p>
                     Coordenou projetos para inovação tecnológica e roadmaps e
                     identificou novos modelos de negócios.
@@ -109,7 +112,10 @@ export default function About() {
                   </p>
                 </div>
               </Box>
-              <Box color="neutral" className="relative">
+              <Box
+                color="neutral"
+                className="relative order-2 aspect-square md:aspect-auto md:order:1"
+              >
                 <Image
                   fill={true}
                   style={{ objectFit: "cover" }}
@@ -126,7 +132,7 @@ export default function About() {
       </Box>
       <Box color="illustrated" className="w-full min-h-screen">
         {/* Nossos valores */}
-        <Box className="container p-5  bg-white mx-auto relative w-full">
+        <Box className="container relative w-full p-5 mx-auto bg-white">
           <Values />
         </Box>
         <Box color="illustrated" className="w-full min-h-[144px]">
@@ -134,7 +140,7 @@ export default function About() {
         </Box>
         {/* History */}
 
-        <Box className="container p-5  bg-white mx-auto relative w-full">
+        <Box className="container relative w-full p-5 mx-auto bg-white">
           <History />
         </Box>
         <Box color="illustrated" className="w-full min-h-[144px]">

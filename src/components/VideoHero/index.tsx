@@ -19,12 +19,12 @@ function VideoHero({
 }: VideoHeroProps) {
   return (
     <header className="relative flex min-h-[486px] justify-center h-screen overflow-hidden">
-      <Box className="container bg-transparent pt-52 mr-0 bg-bottom relative z-30 ">
-        <div className="flex-col w-fit max-w-4xl p-5 lg:flex-row-reverse">
+      <Box className="container relative z-30 pt-32 mr-0 bg-transparent bg-bottom sm:pt-36 xl:pt-52 ">
+        <div className="flex-col p-5 max-w-fit lg:max-w-4xl w-fit lg:flex-row-reverse">
           {text && (
-            <Box className="bg-primary opacity-90 px-6 pt-6 pb-8 rounded-md">
+            <Box className="px-6 pt-6 pb-8 rounded-md bg-primary opacity-90">
               <h1
-                className="text-6xl text font-light mb-8 drop-shadow-2xl"
+                className="mb-8 text-3xl font-light sm:text-4xl md:text-5xl lg:text-6xl text drop-shadow-2xl"
                 style={{ lineHeight: 1.15 }}
               >
                 {text}

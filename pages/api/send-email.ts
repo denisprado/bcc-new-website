@@ -7,11 +7,11 @@ export default async function sendEmail(
 ) {
   const { name, email, message } = req.body;
   const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
+    host: "smtp.office365.com",
     port: 587,
     auth: {
-      user: "bryon49@ethereal.email",
-      pass: "Z9nd374d4R79uJSEdd",
+      user: "edgarbarassa@bcconsulting.com.br",
+      pass: "",
     },
   });
 

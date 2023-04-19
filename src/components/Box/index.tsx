@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from "react";
 interface BoxProps {
   color?: "primary" | "secondary" | "accent" | "neutral" | "illustrated";
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
 }
 

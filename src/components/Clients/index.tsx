@@ -11,22 +11,24 @@ import logo10 from "public/structuralImages/clients/logo10.jpg";
 import logo11 from "public/structuralImages/clients/logo11.png";
 import { FunctionComponent } from "react";
 import Box from "@components/Box";
+import useWindowDimensions from "src/hooks/useWindowDimensions";
 import Image from "next/image";
 
-const Clients: FunctionComponent = () => {
-  const logos = [
-    logo1,
-    logo2,
-    logo3,
-    logo4,
-    logo5,
-    logo8,
-    logo7,
-    logo11,
-    logo9,
-    logo10,
-    logo6,
-  ];
+const logos = [
+  logo1,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo8,
+  logo7,
+  logo11,
+  logo9,
+  logo10,
+  logo6,
+];
+
+const ClientsDesktop: FunctionComponent = () => {
   return (
     <Box
       color={"neutral"}
@@ -57,6 +59,49 @@ const Clients: FunctionComponent = () => {
       ))}
     </Box>
   );
+};
+
+const ClientsMobile = () => {
+  return (
+    <Box
+      color={"neutral"}
+      className={
+        "carousel carousel-center max-w-full p-4 space-x-4 bg-neutral rounded-box"
+      }
+    >
+      <div
+        className={`carousel-item relative flex items-center justify-center border bg-accent aspect-square h-60 rounded-xl bg-[url("/structuralImages/ilustra-fundo-white.svg")] bg-cover`}
+      >
+        <p className={"text-white font-light text-center text-4xl"}>
+          Nossos
+          <br />
+          clientes
+        </p>
+      </div>
+      {logos.map((logo, i) => (
+        <div
+          className="relative border rounded-md carousel-item aspect-square h-60 border-primary"
+          key={i}
+        >
+          <Image
+            fill={true}
+            style={{ objectFit: "contain" }}
+            src={logo}
+            className={"p-5 grayscale hover:grayscale-0"}
+            alt="Logo dos clientes"
+          />
+        </div>
+      ))}
+    </Box>
+  );
+};
+
+const Clients = () => {
+  const windowsDimendions = useWindowDimensions();
+  const { width } = windowsDimendions;
+
+  const Component = width && width < 768 ? ClientsMobile : ClientsDesktop;
+  return <Component />;
 };
 
 export default Clients;

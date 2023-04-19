@@ -5,15 +5,15 @@ import logo from "public/structuralImages/primary-negative-large.png";
 import LogoValues from "./LogoValues";
 
 const Circle = () => (
-  <span className="relative flex h-10 w-10">
-    <span className="relative inline-flex rounded-full h-10 w-10 bg-transparent border-info border"></span>
+  <span className="relative flex w-10 h-10">
+    <span className="relative inline-flex w-10 h-10 bg-transparent border rounded-full border-info"></span>
   </span>
 );
 
 const CircleActive = () => (
-  <span className="relative flex h-10 w-10">
-    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-    <span className="relative inline-flex rounded-full h-10 w-10 bg-accent"></span>
+  <span className="relative flex w-10 h-10">
+    <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-accent"></span>
+    <span className="relative inline-flex w-10 h-10 rounded-full bg-accent"></span>
   </span>
 );
 export type paths = "0" | "1" | "2" | "3" | "4" | "5" | "6";
@@ -34,9 +34,11 @@ const Values: FunctionComponent = () => {
         onMouseLeave={() => setActive("0")}
         className="bg-primary p-5 gap-4 flex flex-row items-center justify-centers min-h-[216px] cursor-pointer"
       >
-        <Box className="flex-1">{isActive ? <CircleActive /> : <Circle />}</Box>
+        <Box className="flex-1 hidden lg:flex">
+          {isActive ? <CircleActive /> : <Circle />}
+        </Box>
         <p
-          className={`text-3xl font-semibold ${
+          className={`text-xl sm:text-2xl md:text-3xl font-semibold ${
             isActive ? "text-white" : "text-info"
           }`}
           style={{ transition: "all 0.5s ease-in-out" }}
@@ -63,7 +65,7 @@ const Values: FunctionComponent = () => {
         id={"1"}
       />
       <div
-        className="bg-primary relative"
+        className="relative bg-primary"
         onMouseEnter={() => setActive("6")}
         onMouseLeave={() => setActive("0")}
       >
@@ -72,7 +74,7 @@ const Values: FunctionComponent = () => {
           style={{ objectFit: "contain" }}
           src={logo}
           className={"p-8"}
-          alt="Logo dos clientes"
+          alt="Logo"
         />
       </div>
 
@@ -81,12 +83,13 @@ const Values: FunctionComponent = () => {
         id={"2"}
       />
 
-      <Box className="row-span-2 relative flex justify-center items-center">
+      <Box className="relative flex items-center justify-center row-span-1 p-4 sm:p-5 md:p-6 lg:p-8 md:row-span-2">
         {active && <LogoValues active={active} />}
       </Box>
       <Value text={"Foco na excelência e qualidade"} id={"3"} />
 
       <Value text="Paixão pelo trabalho e integridade" id={"4"} />
+      <Box color="illustrated" className="md:hidden" />
       <Value text="Cultivo de relações de longo prazo" id={"5"} />
     </Box>
   );

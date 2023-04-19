@@ -19,9 +19,9 @@ export default function History() {
     : null;
 
   return (
-    <div className="flex flex-col w-full mx-auto justify-center items-center">
+    <div className="flex flex-col items-center justify-center w-full mx-auto">
       <Box
-        className="container w-full flex flex-col-reverse gap-4 justify-start items-stretch mx-auto"
+        className="container flex flex-col-reverse items-stretch justify-start w-full gap-4 mx-auto"
         color="neutral"
       >
         <div className="carousel scroll-pt-[24rem] snap-x">
@@ -38,13 +38,12 @@ export default function History() {
                     id={hist.ano ? hist.ano : ""}
                     className="carousel-item w-full scroll-mt-[24rem] "
                   >
-                    <div className="flex flex-col gap-4 justify-start">
+                    <div className="flex flex-col justify-start gap-4">
                       <div className="flex flex-row items-stretch h-full gap-4">
                         {hist &&
                           hist.itens.map((h) => (
                             <div
-                              className="flex-1 text-xl rounded-lg  text-white  border-white hover:border-accent bg-primary 
-															pointer-events-none p-5"
+                              className="flex-1 p-5 text-sm text-white border-white rounded-lg pointer-events-none sm:text-base md:text-md lg:text-lg hover:border-accent bg-primary"
                               key={hist.id}
                             >
                               {h.description}
@@ -58,9 +57,9 @@ export default function History() {
             }
           )}
         </div>
-        <div className="flex flex-row justify-start  w-full gap-2">
+        <div className="flex flex-row flex-wrap justify-start w-full gap-2">
           <div
-            className={`relative py-5 px-8 flex items-center justify-center border bg-accent rounded-xl bg-[url("/structuralImages/ilustra-fundo-white.svg")] bg-cover`}
+            className={`relative w-full md:w-fit py-5 px-8 flex items-center justify-center border bg-accent rounded-xl bg-[url("/structuralImages/ilustra-fundo-white.svg")] bg-cover`}
           >
             <a id="values" />
             <p className={"text-white font-light text-center text-4xl"}>
@@ -79,7 +78,7 @@ export default function History() {
                   key={hist.id}
                   href={`#${hist.ano}`}
                   onClick={() => setActive(hist.ano)}
-                  className={`rounded-lg flex justify-center items-center border text-4xl font-light flex-1 py-12 ${
+                  className={`rounded-lg flex justify-center items-center border text-xl sm: text-2xl md:text-3xl lg:text-4xl font-light flex-1 py-4 sm:py-6 md:py-6 ${
                     active === hist.ano
                       ? "border-accent btn-accent text-white"
                       : "btn-primary btn-outline"

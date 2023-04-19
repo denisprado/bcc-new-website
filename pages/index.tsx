@@ -1,23 +1,19 @@
 import Box from "@components/Box";
-import eletricCar from "public/structuralImages/eletricCar.jpg";
-import robson from "public/structuralImages/robson.jpg";
-import edgar from "public/structuralImages/edgar.jpg";
-import Image from "next/image";
-import { ReactElement } from "react";
-import Layout from "@components/Layout";
 import Button from "@components/Button";
 import Clients from "@components/Clients";
-import Card from "@components/Card";
+import FeaturedPosts from "@components/FeaturedPosts";
+import Layout from "@components/Layout";
 import SessionName from "@components/SessionName";
-import useProjectsCategories from "src/hooks/useProjectsCategories";
-import useProjects from "src/hooks/useProjects";
-import useServiceCategories from "src/hooks/useServicesCategories";
-import Link from "next/link";
 import VideoHero from "@components/VideoHero";
+import Image from "next/image";
+import Link from "next/link";
+import edgar from "public/structuralImages/edgar.jpg";
+import eletricCar from "public/structuralImages/eletricCar.jpg";
+import robson from "public/structuralImages/robson.jpg";
+import { ReactElement } from "react";
+import useServiceCategories from "src/hooks/useServicesCategories";
 
 export default function Home() {
-  const { data: allCategories } = useProjectsCategories();
-  const { data: projects } = useProjects();
   const { data: allServiceCategories } = useServiceCategories();
 
   return (
@@ -40,9 +36,9 @@ export default function Home() {
         <a id="serv" />
         <Box
           color="neutral"
-          className="container grid grid-cols-2 gap-4 m-4 mx-auto  min-h-[500px]"
+          className="container grid md:grid-cols-2 gap-4 m-4 mx-auto  min-h-[500px]"
         >
-          <Box color="neutral" className="relative">
+          <Box color="neutral" className="relative hidden md:flex">
             <Image
               fill={true}
               style={{ objectFit: "cover" }}
@@ -64,7 +60,7 @@ export default function Home() {
               especialistas trabalham para ajudar os clientes a alcançar seus
               objetivos ambientais, econômicos e sociais.
             </p>
-            <Box className="flex gap-2 my-4">
+            <Box className="flex flex-row gap-2 my-4 ">
               {allServiceCategories ? (
                 allServiceCategories?.map((cat) => (
                   <Link key={cat.id} href={`services/${cat.id}`}>
@@ -82,16 +78,16 @@ export default function Home() {
       <Box className="mx-4" color="illustrated">
         <Box
           color="neutral"
-          className="container grid grid-cols-2 gap-4 m-4 mx-auto  min-h-[500px]"
+          className="container grid md:grid-cols-2 gap-4 m-4 mx-auto sm:min-h-[500px]"
         >
-          <Box className="flex flex-col gap-4 p-14">
+          <Box className="flex flex-col gap-4 p-5 sm:p-14">
             <SessionName>quem somos</SessionName>
             <h2 className="text-3xl">
               Quer saber quem está por trás dos nossos serviços incríveis?
               Conheça a nossa equipe de especialistas!
             </h2>
 
-            <Box className="flex gap-2 my-4">
+            <Box className="flex flex-row gap-2 my-4">
               <Link href={`about`}>
                 <Button type={"page"}>Nossa equipe</Button>
               </Link>
@@ -137,11 +133,8 @@ export default function Home() {
 
       {/* Projetos & cia */}
 
-      <Box
-        color="neutral"
-        className="container grid grid-cols-4 gap-4 m-4 mx-auto"
-      >
-        {featuredPosts(allCategories, projects)}
+      <Box color="neutral" className="w-full mx-auto">
+        <FeaturedPosts />
       </Box>
     </Box>
   );
@@ -152,27 +145,3 @@ Home.noLayout = true;
 Home.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
-
-function featuredPosts(
-  allCategories: { [x: string]: string }[] | null | undefined,
-  projects: { [x: string]: string }[] | null | undefined
-) {
-  return allCategories ? (
-    allCategories.map((cat) =>
-      projects?.map((project) =>
-        project?.featured && project.id_post_category === cat.id ? (
-          <Card
-            key={project.id}
-            sessionName={cat.description}
-            title={project.title}
-            description={project.description}
-          />
-        ) : (
-          <></>
-        )
-      )
-    )
-  ) : (
-    <p>Nenhum resultado encontrado</p>
-  );
-}

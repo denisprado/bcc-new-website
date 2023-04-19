@@ -18,6 +18,7 @@ const Contact = () => {
     message: "",
   });
   const [status, setStatus] = useState<string>("");
+  const [error, setError] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,11 +28,12 @@ const Contact = () => {
         "api/send-email",
         values
       );
-
+      setError(false);
       setStatus(response.data.message);
       setValues({ name: "", email: "", message: "" });
     } catch (error) {
-      setStatus("Error sending email");
+      setError(true);
+      setStatus("Erro ao enviar a mensagem.");
     }
   };
 
@@ -62,7 +64,7 @@ const Contact = () => {
               type="text"
               placeholder="Nome"
               name="name"
-              className="w-full text-gray-500 max-w-xs input input-bordered"
+              className="w-full max-w-xs text-gray-500 input input-bordered"
               value={values.name}
               onChange={handleChange}
             />
@@ -70,12 +72,12 @@ const Contact = () => {
               type="text"
               placeholder="Email"
               name="email"
-              className="w-full max-w-xs input input-bordered text-gray-500"
+              className="w-full max-w-xs text-gray-500 input input-bordered"
               value={values.email}
               onChange={handleChange}
             />
             <textarea
-              className="textarea textarea-bordered text-gray-500"
+              className="text-gray-500 textarea textarea-bordered"
               placeholder="Mensagem"
               name="message"
               value={values.message}
@@ -84,7 +86,9 @@ const Contact = () => {
             <Button submit={true} type="cta">
               Enviar
             </Button>
-            <p>{status}</p>
+            <p className={`${error ? "text-error" : "text-accent"}`}>
+              {status}
+            </p>
           </Box>
         </form>
       </Box>

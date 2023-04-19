@@ -7,15 +7,22 @@ interface CardProps {
   title: string;
   description: string;
   buttonHref?: string;
+  className?: string;
 }
 
-const Card = ({ description, sessionName, title, buttonHref }: CardProps) => {
+const Card = ({
+  description,
+  sessionName,
+  title,
+  buttonHref,
+  className,
+}: CardProps) => {
   return (
-    <div className="card bg-primary text-primary-content">
+    <div className={`card bg-primary text-primary-content ${className}`}>
       <div className="card-body">
         <SessionName>{sessionName}</SessionName>
         <h2 className="card-title">{title}</h2>
-        <p>{description}</p>
+        <p className="hidden sm:flex">{description.substring(0, 255)}</p>
         {!!buttonHref && (
           <div className="justify-end card-actions">
             <Link href={buttonHref}>

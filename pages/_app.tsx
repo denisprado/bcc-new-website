@@ -6,18 +6,17 @@ import routerProvider, {
 } from "@refinedev/nextjs-router";
 import type { NextPage } from "next";
 import { AppProps } from "next/app";
-
+import CookiesNotice from "@components/CookieConsent";
 import { Header } from "@components/HeaderAdmin";
 import { ColorModeContextProvider } from "@contexts";
 import "@refinedev/antd/dist/reset.css";
 import { dataProvider } from "@refinedev/supabase";
-import { authProvider } from "src/authProvider";
-import { supabaseClient } from "src/utility";
 import { ReactElement, ReactNode, useState } from "react";
-import "../src/styles/styles.css";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import CookiesNotice from "@components/CookieConsent";
+import { authProvider } from "src/authProvider";
+import { supabaseClient } from "src/utility";
+import "../src/styles/styles.css";
 
 export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
@@ -62,31 +61,31 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
             notificationProvider={notificationProvider}
             resources={[
               {
-                name: "services",
-                list: "/services",
-                create: "/services/create",
-                edit: "/services/edit/:id",
-                show: "/services/show/:id",
+                name: "Services",
+                list: "/servicesAdmin",
+                create: "/servicesAdmin/create",
+                edit: "/servicesAdmin/edit/:id",
+                show: "/servicesAdmin/show/:id",
                 meta: {
                   canDelete: true,
                 },
               },
-              {
-                name: "PostCategories",
-                list: "/services",
-                create: "/services/create",
-                edit: "/services/edit/:id",
-                show: "/services/show/:id",
-                meta: {
-                  canDelete: true,
-                },
-              },
+              // {
+              // 	name: "PostCategories",
+              // 	list: "/servicesAdmin",
+              // 	create: "/servicesAdmin/create",
+              // 	edit: "/servicesAdmin/edit/:id",
+              // 	show: "/servicesAdmin/show/:id",
+              // 	meta: {
+              // 		canDelete: true,
+              // 	},
+              // },
               {
                 name: "Posts",
-                list: "/posts",
-                create: "/posts/create",
-                edit: "/posts/edit/:id",
-                show: "/posts/show/:id",
+                list: "/postsAdmin",
+                create: "/postsAdmin/create",
+                edit: "/postsAdmin/edit/:id",
+                show: "/postsAdmin/show/:id",
                 meta: {
                   canDelete: true,
                 },
@@ -99,6 +98,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
           >
             {renderComponent()}
             <RefineKbar />
+
             <UnsavedChangesNotifier />
           </Refine>
         </ColorModeContextProvider>

@@ -112,6 +112,12 @@ export interface IPosts {
   id_service_category: IServiceCategory;
   featured: boolean;
 }
+export interface IServices {
+  id: string;
+  createdAt: string;
+  description: string;
+  id_category_service: IServiceCategory;
+}
 
 export interface IPostCategory {
   id: string;

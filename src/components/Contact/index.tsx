@@ -1,5 +1,6 @@
 import Box from "@components/Box";
 import Button from "@components/Button";
+import SessionName from "@components/SessionName";
 import axios, { AxiosResponse } from "axios";
 import Image from "next/image";
 import contactForm from "public/structuralImages/contact-image.jpg";
@@ -57,9 +58,7 @@ const Contact = () => {
         />
       </Box>
       <Box className="flex flex-col gap-4 p-10">
-        <a className="font-semibold link text-accent hover:text-accent-focus">
-          entre em contato
-        </a>
+        <SessionName>entre em contato</SessionName>
 
         <form onSubmit={handleSubmit}>
           <Box className="flex flex-col gap-4">

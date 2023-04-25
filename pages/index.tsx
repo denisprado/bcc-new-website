@@ -21,7 +21,7 @@ export default function Home() {
       {/* // Hero */}
       <VideoHero
         text={
-          "Criando valor junto às tecnologias\xa0emergentes\xa0verdes e\xa0de\xa0baixo\xa0carbono"
+          "Criando valor junto às tecnologias emergentes verdes e de\xa0baixo\xa0carbono"
         }
         hasButton={true}
         buttonLabel={"Saiba mais"}
@@ -46,9 +46,9 @@ export default function Home() {
               alt="Eletric Car"
             />
           </Box>
-          <Box className="flex flex-col gap-4 p-14">
+          <Box className="flex flex-col gap-4 p-4 lg:p-14">
             <SessionName>o que fazemos</SessionName>
-            <h2 className="text-3xl">
+            <h2 className="text-2xl lg:text-3xl">
               Planejamento e estratégia para empresas e organizações que buscam
               a descarbonização com viabilidade técnica e econômica
             </h2>

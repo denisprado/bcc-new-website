@@ -44,7 +44,10 @@ const Contact = () => {
   };
 
   return (
-    <Box color="neutral" className="grid grid-cols-2 gap-5 m-5 mx-auto">
+    <Box
+      color="neutral"
+      className="grid grid-cols-1 gap-5 m-5 mx-auto sm:grid-cols-2"
+    >
       <Box color="neutral" className="relative">
         <Image
           fill={true}

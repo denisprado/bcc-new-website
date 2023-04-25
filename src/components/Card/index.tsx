@@ -18,11 +18,15 @@ const Card = ({
   className,
 }: CardProps) => {
   return (
-    <div className={`card bg-primary text-primary-content ${className}`}>
+    <div
+      className={`card card-compact sm:card-normal bg-primary text-primary-content ${className}`}
+    >
       <div className="card-body">
         <SessionName>{sessionName}</SessionName>
-        <h2 className="card-title">{title}</h2>
-        <p className="hidden sm:flex">{description.substring(0, 255)}</p>
+        <h2 className="text-white card-title">{title}</h2>
+        <p className="hidden text-sm sm:flex">
+          {description.substring(0, 255)}
+        </p>
         {!!buttonHref && (
           <div className="justify-end card-actions">
             <Link href={buttonHref}>

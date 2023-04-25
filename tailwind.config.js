@@ -40,6 +40,8 @@ module.exports = {
           success: "#3ABA90",
           warning: "#F3C178",
           error: "#FE5E41",
+          "--btn-text-case": "smallcaps", // set default text transform for buttons
+          "--btn-focus-scale": "0.95",
         },
       },
     ],

@@ -31,13 +31,16 @@ function ServicePage() {
 
   return (
     <>
-      <div className="container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4">
+      <div className="container grid grid-cols-1 p-4 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4 min-h-full">
         {services &&
           services.map((service) => {
             return (
               <Box
+                color="neutral"
                 key={service.id}
-                className={"p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-2"}
+                className={
+                  "p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-2 border border-primary rounded-lg"
+                }
               >
                 <h3 className="text-accent">{category && category[0].title}</h3>
                 <p className="text-sm sm:text-md md:text-xl lg:text-2xl font-regular">
@@ -47,6 +50,7 @@ function ServicePage() {
             );
           })}
       </div>
+
       <div className="container">
         <Clients />
       </div>

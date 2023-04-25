@@ -50,8 +50,8 @@ export default function About() {
               <Box className="flex flex-col gap-5 p-14">
                 <h2 className="font-thin text-8xl">Robson Cruz</h2>
                 <h3 className="text-3xl text-accent">
-                  Experiência em Pesquisa e Desenvolvimento
-                  de&nbsp;Sistemas&nbsp;de&nbsp;Powertrain
+                  Experiência em Pesquisa e Desenvolvimento de Sistemas de
+                  Powertrain
                 </h3>
                 <div className="flex flex-col w-11/12 gap-3">
                   <p>
@@ -86,8 +86,8 @@ export default function About() {
               <Box className="flex flex-col order-2 gap-4 p-14 md:order:1">
                 <h2 className="font-thin text-8xl">Edgar Barassa</h2>
                 <h3 className="text-3xl text-accent">
-                  Experiência em Prospecção Tecnológica e
-                  Governança&nbsp;para&nbsp;Ciência, Tecnologia e Inovação
+                  Experiência em Prospecção Tecnológica e Governança para
+                  Ciência, Tecnologia e Inovação
                 </h3>
                 <div className="flex flex-col w-11/12 gap-3">
                   <p>
@@ -127,7 +127,7 @@ export default function About() {
           </Box>
         </Box>
       </Box>
-      <Box color="illustrated" className="w-full min-h-[144px]">
+      <Box color="illustrated" className="w-full xl:min-h-[144px]">
         <a id="valores" />
       </Box>
       <Box color="illustrated" className="w-full min-h-screen">
@@ -135,7 +135,7 @@ export default function About() {
         <Box className="container relative w-full p-5 mx-auto bg-white">
           <Values />
         </Box>
-        <Box color="illustrated" className="w-full min-h-[144px]">
+        <Box color="illustrated" className="w-full md:min-h-[144px]">
           <a id="historia" />
         </Box>
         {/* History */}
@@ -143,9 +143,7 @@ export default function About() {
         <Box className="container relative w-full p-5 mx-auto bg-white">
           <History />
         </Box>
-        <Box color="illustrated" className="w-full min-h-[144px]">
-          &nbsp;
-        </Box>
+        <Box color="illustrated" className="w-full min-h-[144px]"></Box>
       </Box>
     </Box>
   );

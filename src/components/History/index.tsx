@@ -39,11 +39,11 @@ export default function History() {
                     className="carousel-item w-full scroll-mt-[24rem] "
                   >
                     <div className="flex flex-col justify-start gap-4">
-                      <div className="flex flex-row items-stretch h-full gap-4">
+                      <div className="flex flex-col items-stretch h-full gap-4 sm:flex-row">
                         {hist &&
                           hist.itens.map((h) => (
                             <div
-                              className="flex-1 p-5 text-sm text-white border-white rounded-lg pointer-events-none sm:text-base md:text-md lg:text-lg hover:border-accent bg-primary"
+                              className="flex-1 p-5 text-sm bg-white border rounded-lg pointer-events-none text-primary border-primary sm:text-base md:text-md lg:text-lg hover:border-accent"
                               key={hist.id}
                             >
                               {h.description}
@@ -78,10 +78,10 @@ export default function History() {
                   key={hist.id}
                   href={`#${hist.ano}`}
                   onClick={() => setActive(hist.ano)}
-                  className={`rounded-lg flex justify-center items-center border text-xl sm: text-2xl md:text-3xl lg:text-4xl font-light flex-1 py-4 sm:py-6 md:py-6 ${
+                  className={`rounded-lg flex justify-center items-center border text-lg sm:text-xl md:text-2xl lg:text-3xl font-light flex-1 py-4 sm:py-6 md:py-6 ${
                     active === hist.ano
                       ? "border-accent btn-accent text-white"
-                      : "btn-primary btn-outline"
+                      : "btn-primary"
                   }`}
                 >
                   {hist && hist.ano}

@@ -2,25 +2,39 @@ import { FunctionComponent } from "react";
 import Image from "next/image";
 import logo from "public/structuralImages/logo.png";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Items = () => {
+  const router = useRouter();
+  const { pathname } = router;
+
+  const itemsData = [
+    {
+      label: "Quem somos",
+      slug: "/about",
+      active: pathname.indexOf("/about") > -1 ? "active" : "",
+    },
+    {
+      label: "Que fazemos",
+      slug: "/services",
+      active: pathname.indexOf("/services") > -1 ? "active" : "",
+    },
+    {
+      label: "Projetos & cia",
+      slug: "/projects",
+      active: pathname.indexOf("/projects") > -1 ? "active" : "",
+    },
+  ];
+
   return (
     <>
-      <li>
-        <Link className="hover:text-accent" href={"/about"}>
-          Quem somos
-        </Link>
-      </li>
-      <li>
-        <Link className="hover:text-accent" href={"/services"}>
-          O que fazemos
-        </Link>
-      </li>
-      <li>
-        <Link href={"/projects"} className="hover:text-accent">
-          Projetos & cia
-        </Link>
-      </li>
+      {itemsData.map((item) => (
+        <li key={item.slug}>
+          <Link className={`hover:text-accent ${item.active}`} href={item.slug}>
+            {item.label}
+          </Link>
+        </li>
+      ))}
     </>
   );
 };
@@ -29,7 +43,7 @@ const ClientHeader: FunctionComponent = () => {
   const getWidthLogo = (h: number) => h * 3.55;
   const h = 56;
   return (
-    <div className="z-50 h-20 p-5 navbar bg-primary">
+    <div className="top-0 z-50 h-20 p-5 border-b-2 border-info sm:sticky navbar bg-primary">
       <div className="flex-1 navbar-start">
         <Link href={"/"}>
           <Image width={getWidthLogo(h)} height={h} src={logo} alt="BCC logo" />

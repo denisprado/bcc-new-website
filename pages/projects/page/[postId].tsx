@@ -23,7 +23,7 @@ function ProjectPage() {
 
   return (
     <>
-      <div className="container grid grid-cols-3 m-4 min-h[120px] gap-4">
+      <div className="container grid grid-cols-3 gap-4 m-4">
         <Card
           sessionName={category?.description}
           title={post?.title}

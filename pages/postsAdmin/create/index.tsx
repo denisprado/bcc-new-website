@@ -39,7 +39,39 @@ const PostsCreate: React.FC = () => {
         >
           <Input />
         </Form.Item>
-
+        <Form.Item
+          label="Ano"
+          name="year"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Input defaultValue={"2023"} />
+        </Form.Item>
+        <Form.Item
+          label="Cliente"
+          name="client"
+          rules={[
+            {
+              required: false,
+            },
+          ]}
+        >
+          <Input defaultValue={"2023"} />
+        </Form.Item>
+        <Form.Item
+          label="Link externo"
+          name="url"
+          rules={[
+            {
+              required: false,
+            },
+          ]}
+        >
+          <Input defaultValue={"2023"} />
+        </Form.Item>
         <Form.Item
           label="Category"
           name="id_post_category"

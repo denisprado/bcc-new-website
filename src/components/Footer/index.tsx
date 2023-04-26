@@ -58,7 +58,23 @@ const Footer = () => {
       </div>
       <div>
         <span className="footer-title">Social</span>
-        <div className="grid grid-flow-col gap-4"></div>
+        <Link
+          scroll={false}
+          href={`https://www.linkedin.com/company/barassa-cruz-consulting/`}
+          className={`link link-hover`}
+        >
+          Linkedin
+        </Link>
+        <Link
+          scroll={false}
+          href={`https://www.instagram.com/barassaecruzconsulting/`}
+          className={`link link-hover`}
+        >
+          Instagram
+        </Link>
+        <Link scroll={false} href={``} className={`link link-hover`}>
+          Facebook
+        </Link>
       </div>
     </footer>
   );

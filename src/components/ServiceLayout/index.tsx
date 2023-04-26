@@ -42,18 +42,27 @@ export default function ServiceLayout({ children }: LayoutProps) {
           }
         />
       </Box>
-      <div className="my-4 tabs">
-        {serviceCategories?.map((cat) => {
-          const tabStyle =
-            categoryId === cat.id ? "tab-active text-primary" : "";
-          return (
-            <a className={`${tabStyle} tab tab-bordered tab-lg`} key={cat.id}>
-              <Link scroll={false} href={`${cat.id}`}>
-                {cat.title}
-              </Link>
-            </a>
-          );
-        })}
+      <div className="flex flex-col items-center justify-center w-full mt-16">
+        <div className="container flex justify-center w-full border-b border-gray-200">
+          <div className="outline outline-white">
+            {serviceCategories?.map((cat) => {
+              const tabStyle =
+                categoryId === cat.id
+                  ? "tab-active text-accent bg-accent"
+                  : "bg-primary text-white ";
+              return (
+                <Link
+                  className={`tab mx-1 tab-lg tab-lifted border border-white ${tabStyle}`}
+                  key={cat.id}
+                  scroll={false}
+                  href={`${cat.id}`}
+                >
+                  {cat.title}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </div>
       <a id="serv" />
       {children}

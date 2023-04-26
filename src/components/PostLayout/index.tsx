@@ -33,22 +33,26 @@ export default function PostLayout({ children }: LayoutProps) {
         }
       />
 
-      <div className="flex flex-col items-center justify-center w-full">
-        <div className="my-4 tabs">
-          {postCategories?.map((cat) => {
-            const tabStyle =
-              categoryId === cat.id ? "tab-active text-primary" : "";
-            return (
-              <Link
-                scroll={false}
-                href={`${cat.id}`}
-                className={`${tabStyle} tab tab-bordered tab-lg`}
-                key={cat.id}
-              >
-                {cat.description}
-              </Link>
-            );
-          })}
+      <div className="flex flex-col items-center justify-center w-full mt-16">
+        <div className="container flex justify-center w-full border-b border-gray-200">
+          <div className="outline outline-white">
+            {postCategories?.map((cat) => {
+              const tabStyle =
+                categoryId === cat.id
+                  ? "tab-active text-accent bg-accent"
+                  : "bg-primary text-white ";
+              return (
+                <Link
+                  scroll={false}
+                  href={`${cat.id}`}
+                  className={`tab mx-1 tab-lg tab-lifted border border-white ${tabStyle}`}
+                  key={cat.id}
+                >
+                  {cat.description}
+                </Link>
+              );
+            })}
+          </div>
         </div>
         {children}
       </div>

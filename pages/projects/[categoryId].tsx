@@ -20,7 +20,6 @@ function ProjectPage() {
       : catInitial;
   const { data: Projects, isLoading, isError } = useProjectByCategory(id);
   const { data: category } = useProjectsCategoriesById(id);
-  console.log(category);
 
   if (isLoading) {
     return <div>Loading...</div>;

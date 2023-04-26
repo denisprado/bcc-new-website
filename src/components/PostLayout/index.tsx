@@ -34,13 +34,13 @@ export default function PostLayout({ children }: LayoutProps) {
       />
 
       <div className="flex flex-col items-center justify-center w-full mt-16">
-        <div className="container flex justify-center w-full border-b border-gray-200">
+        <div className="container flex justify-center w-full border-b border-[--tab-border-color]">
           <div className="outline outline-white">
             {postCategories?.map((cat) => {
               const tabStyle =
                 categoryId === cat.id
                   ? "tab-active text-accent bg-accent"
-                  : "bg-primary text-white ";
+                  : "bg-primary/75 text-white ";
               return (
                 <Link
                   scroll={false}

@@ -81,7 +81,7 @@ export default function History() {
                   className={`rounded-lg flex justify-center items-center border text-lg sm:text-xl md:text-2xl lg:text-3xl font-light flex-1 py-4 sm:py-6 md:py-6 ${
                     active === hist.ano
                       ? "border-accent btn-accent text-white"
-                      : "btn-primary"
+                      : "btn-primary bg-primary/90"
                   }`}
                 >
                   {hist && hist.ano}

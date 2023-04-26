@@ -50,7 +50,10 @@ const Values: FunctionComponent = () => {
   };
 
   return (
-    <Box color={"neutral"} className={"grid grid-cols-3 gap-2 box-border"}>
+    <Box
+      color={"neutral"}
+      className={"grid grid-cols-3 gap-2 sm:gap- md:gap-4 box-border"}
+    >
       <div
         className={`relative flex items-center justify-center border bg-accent rounded-xl bg-[url("/structuralImages/ilustra-fundo-white.svg")] bg-cover`}
       >

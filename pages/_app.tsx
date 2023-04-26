@@ -50,10 +50,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
         Header={Header}
         Title={() => (
           <Image
-            className={"bg-primary absolute"}
+            className={"bg-secondary absolute -ml-4 py-1 px-2"}
             src={Logo}
             alt="BCC Consulting"
-            width={199}
+            width={200}
             height={56}
           ></Image>
         )}

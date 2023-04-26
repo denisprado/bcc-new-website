@@ -1,22 +1,24 @@
-import { Layout as RefineLayout, notificationProvider } from "@refinedev/antd";
+import CookiesNotice from "@components/CookieConsent";
+import { Header } from "@components/HeaderAdmin";
+import { ColorModeContextProvider } from "@contexts";
+import { ThemedLayoutV2, notificationProvider } from "@refinedev/antd";
+import "@refinedev/antd/dist/reset.css";
 import { Refine } from "@refinedev/core";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import routerProvider, {
   UnsavedChangesNotifier,
 } from "@refinedev/nextjs-router";
+import { dataProvider } from "@refinedev/supabase";
 import type { NextPage } from "next";
 import { AppProps } from "next/app";
-import CookiesNotice from "@components/CookieConsent";
-import { Header } from "@components/HeaderAdmin";
-import { ColorModeContextProvider } from "@contexts";
-import "@refinedev/antd/dist/reset.css";
-import { dataProvider } from "@refinedev/supabase";
 import { ReactElement, ReactNode, useState } from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { authProvider } from "src/authProvider";
 import { supabaseClient } from "src/utility";
 import "../src/styles/styles.css";
+import Image from "next/image";
+import Logo from "public/structuralImages/logo.png";
 
 export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
@@ -44,9 +46,20 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
     }
 
     return (
-      <RefineLayout Header={Header}>
+      <ThemedLayoutV2
+        Header={Header}
+        Title={() => (
+          <Image
+            className={"bg-primary absolute"}
+            src={Logo}
+            alt="BCC Consulting"
+            width={199}
+            height={56}
+          ></Image>
+        )}
+      >
         <Component {...pageProps} />
-      </RefineLayout>
+      </ThemedLayoutV2>
     );
   };
 

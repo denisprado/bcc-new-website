@@ -18,7 +18,7 @@ import { Alert, Button, Form, Input, Select, Upload } from "antd";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
-import { IPosts, IPostCategory } from "src/interfaces";
+import { IPosts, IPostCategory, IServiceCategory } from "src/interfaces";
 import { supabaseClient } from "src/utility";
 import { RcFile } from "antd/es/upload";
 import { normalizeFile } from "src/utility/normalizeFile";
@@ -39,6 +39,12 @@ const PostEdit: React.FC = () => {
     defaultValue: postData?.id_post_category.id,
     optionLabel: "description",
   });
+  const { selectProps: serviceCategorySelectProps } =
+    useSelect<IServiceCategory>({
+      resource: "ServiceCategories",
+      defaultValue: postData?.id_service_category.id,
+      optionLabel: "title",
+    });
 
   const handleRefresh = () => {
     queryResult?.refetch();
@@ -127,6 +133,17 @@ const PostEdit: React.FC = () => {
           ]}
         >
           <Select {...categorySelectProps} />
+        </Form.Item>
+        <Form.Item
+          label="Público"
+          name="id_service_category"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Select {...serviceCategorySelectProps} />
         </Form.Item>
         <Form.Item
           label="Content"

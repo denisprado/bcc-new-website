@@ -1,5 +1,4 @@
-import { IPostCategory, IPosts } from "src/interfaces";
-import Image from "next/image";
+import { IPostCategory, IPosts, IServiceCategory } from "src/interfaces";
 import { BaseKey, useMany } from "@refinedev/core";
 
 import {
@@ -22,8 +21,9 @@ export default function BlogPostList() {
   const categoryIds = tableProps?.dataSource?.map(
     (item) => item.id_post_category
   ) ?? [""];
-
-  console.log(categoryIds);
+  const serviceCategoryIds = tableProps?.dataSource?.map(
+    (item) => item.id_service_category
+  ) ?? [""];
 
   const { data, isLoading } = useMany<IPostCategory>({
     resource: "PostCategories",
@@ -33,18 +33,29 @@ export default function BlogPostList() {
     },
   });
 
+  const { data: serviceCatData, isLoading: serviceDataisLoading } =
+    useMany<IServiceCategory>({
+      resource: "ServiceCategories",
+      ids: serviceCategoryIds as BaseKey[],
+      queryOptions: {
+        enabled: serviceCategoryIds.length > 0,
+      },
+    });
+
   return (
     <List>
       <Table {...tableProps} rowKey="id">
         {/* <Table.Column dataIndex="id" title="ID" /> */}
         <Table.Column
           dataIndex="featured"
-          title="Fixed in Home"
+          title="Fixado"
+          sorter
           render={(value: string) => <BooleanField value={value} />}
         />
         <Table.Column
           dataIndex={"id_post_category"}
-          title="Category"
+          title="Categoria"
+          sorter
           render={(value) => {
             if (isLoading) {
               return <TextField value="Loading..." />;
@@ -59,15 +70,36 @@ export default function BlogPostList() {
             );
           }}
         />
-        <Table.Column dataIndex="title" title="Title" />
-        <Table.Column dataIndex="description" title="Content" />
         <Table.Column
+          dataIndex={"id_service_category"}
+          title="Público"
+          sorter
+          render={(value) => {
+            if (serviceDataisLoading) {
+              return <TextField value="Loading..." />;
+            }
+
+            return (
+              <TagField
+                value={
+                  serviceCatData?.data.find((item) => item.id === value)?.title
+                }
+              />
+            );
+          }}
+        />
+        <Table.Column dataIndex="title" title="Título" />
+        <Table.Column dataIndex="client" title="Cliente" />
+        <Table.Column dataIndex="url" title="Link" />
+        <Table.Column dataIndex="year" title="Ano" filterDropdown />
+        <Table.Column dataIndex="description" title="Descrição" />
+        {/* <Table.Column
           dataIndex="image"
           title="Image"
           render={(image) => {
             return <Image alt={image.name} src={image.url} />;
           }}
-        />
+        /> */}
         <Table.Column<IPosts>
           title="Actions"
           dataIndex="actions"

@@ -50,8 +50,8 @@ function FeaturedPostsMobile() {
   const { data: projects } = useProjects();
 
   return allCategories ? (
-    <div className="flex flex-col items-center justify-center w-full mt-16">
-      <div className="container flex justify-center w-full border-b border-gray-200">
+    <div className="items-center justify-center mt-16 lg:flex lg:flex-col lg:w-full">
+      <div className="justify-center border-b border-gray-200 lg:flex lg:container lg:w-full">
         <div className="outline outline-white">
           <Link
             className={`tab mx-1 tab-lg tab-lifted border border-white`}

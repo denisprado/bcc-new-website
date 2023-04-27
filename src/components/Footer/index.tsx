@@ -31,7 +31,7 @@ const Footer = () => {
             <Link
               className="link link-hover"
               key={cat.id}
-              href={`services/${cat.id}`}
+              href={`/services/${cat.id}`}
             >
               {cat.title}
             </Link>
@@ -46,8 +46,8 @@ const Footer = () => {
         {postCategories?.map((cat) => {
           return (
             <Link
-              scroll={false}
-              href={`projects/${cat.id}`}
+              scroll={true}
+              href={`/projects/${cat.id}`}
               className={`link link-hover`}
               key={cat.id}
             >

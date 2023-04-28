@@ -31,7 +31,9 @@ function VideoHero({
               </h1>
               {hasButton && (
                 <Button type={"cta"}>
-                  <Link href={buttonHref}>{buttonLabel}</Link>
+                  <Link className={"scroll-smooth"} href={buttonHref}>
+                    {buttonLabel}
+                  </Link>
                 </Button>
               )}
             </Box>

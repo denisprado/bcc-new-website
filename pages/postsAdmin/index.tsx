@@ -88,11 +88,6 @@ export default function BlogPostList() {
             );
           }}
         />
-        <Table.Column dataIndex="title" title="Título" />
-        <Table.Column dataIndex="client" title="Cliente" />
-        <Table.Column dataIndex="url" title="Link" />
-        <Table.Column dataIndex="year" title="Ano" filterDropdown />
-        <Table.Column dataIndex="description" title="Descrição" />
         <Table.Column
           dataIndex="image"
           title="Image"
@@ -104,6 +99,12 @@ export default function BlogPostList() {
             return image && <Image alt={image?.name} src={url} width={100} />;
           }}
         />
+        <Table.Column dataIndex="title" title="Título" />
+        <Table.Column dataIndex="client" title="Cliente" />
+        {/* <Table.Column dataIndex="url" title="Link" width={100} /> */}
+        <Table.Column dataIndex="year" title="Ano" filterDropdown />
+        <Table.Column dataIndex="description" title="Descrição" />
+
         <Table.Column<IPosts>
           title="Actions"
           dataIndex="actions"

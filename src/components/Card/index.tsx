@@ -53,7 +53,11 @@ const Card = ({
     >
       {url && (
         <figure>
-          <img src={url} alt="Shoes" />
+          <img
+            src={url}
+            alt="Shoes"
+            className="object-cover object-top w-full max-h-72"
+          />
         </figure>
       )}
       <div className="justify-start flex-none card-body">
@@ -87,6 +91,7 @@ const Card = ({
           <div className="justify-start card-actions">
             <Link
               href={buttonHref}
+              target="_blank"
               className="flex flex-row items-center gap-2"
             >
               <button className="link">Mais informações</button>

@@ -32,6 +32,10 @@ function FeaturedPostsDesktop() {
                 sessionName={cat.description}
                 title={project.title}
                 description={project.description}
+                client={project.client}
+                year={project.year}
+                buttonHref={project?.url ?? ""}
+                image={project?.image}
               />
             ) : (
               <></>

@@ -19,7 +19,7 @@ import { supabaseClient } from "src/utility";
 import "../src/styles/styles.css";
 import Image from "next/image";
 import Logo from "public/structuralImages/logo.png";
-
+import { Analytics } from "@vercel/analytics/react";
 export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
   getLayout?: (page: ReactElement) => ReactNode;
@@ -38,6 +38,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <CookiesNotice />
+            <Analytics />
             {getLayout(<Component {...pageProps} />)}
           </Hydrate>
           <ReactQueryDevtools />

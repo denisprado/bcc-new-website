@@ -43,6 +43,7 @@ function ProjectPage() {
                 year={project.year}
                 description={project.description}
                 buttonHref={project?.url ?? ""}
+                image={project?.image}
               />
             );
           })}

@@ -9,6 +9,7 @@ interface CardProps {
   description: string;
   buttonHref?: string;
   className?: string;
+  image?: string;
 }
 
 const ExternalLinkIcon = () => (
@@ -42,11 +43,19 @@ const Card = ({
   className,
   year,
   client,
+  image,
 }: CardProps) => {
+  const img = image ? JSON.parse(image) : "";
+  const url = img[0]?.url;
   return (
     <div
       className={`card card-compact sm:card-normal bg-primary text-primary-content ${className}`}
     >
+      {url && (
+        <figure>
+          <img src={url} alt="Shoes" />
+        </figure>
+      )}
       <div className="justify-start flex-none card-body">
         <SessionName>{sessionName}</SessionName>
         <div className="card-title">

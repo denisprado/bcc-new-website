@@ -42,13 +42,14 @@ const PostsCreate: React.FC = () => {
         <Form.Item
           label="Ano"
           name="year"
+          initialValue={"2023"}
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Input defaultValue={"2023"} />
+          <Input />
         </Form.Item>
         <Form.Item
           label="Cliente"
@@ -59,7 +60,7 @@ const PostsCreate: React.FC = () => {
             },
           ]}
         >
-          <Input defaultValue={"2023"} />
+          <Input />
         </Form.Item>
         <Form.Item
           label="Link externo"
@@ -70,7 +71,7 @@ const PostsCreate: React.FC = () => {
             },
           ]}
         >
-          <Input defaultValue={"2023"} />
+          <Input />
         </Form.Item>
         <Form.Item
           label="Category"
@@ -112,14 +113,14 @@ const PostsCreate: React.FC = () => {
 
                   await supabaseClient.storage
                     .from("project-images")
-                    .upload(`public/${rcFile.name}`, file, {
+                    .upload(`images/${rcFile.name}`, file, {
                       cacheControl: "3600",
                       upsert: true,
                     });
 
                   const { data } = supabaseClient.storage
-                    .from("project-images")
-                    .getPublicUrl(`public/${rcFile.name}`);
+                    .from("videos")
+                    .getPublicUrl(`${rcFile.name}`);
 
                   const xhr = new XMLHttpRequest();
                   onSuccess && onSuccess({ url: data?.publicUrl }, xhr);

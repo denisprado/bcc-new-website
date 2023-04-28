@@ -1,5 +1,5 @@
-import { IPostCategory, IPosts, IServiceCategory } from "src/interfaces";
 import { BaseKey, useMany } from "@refinedev/core";
+import { IPostCategory, IPosts, IServiceCategory } from "src/interfaces";
 
 import {
   BooleanField,
@@ -11,7 +11,7 @@ import {
   TextField,
   useTable,
 } from "@refinedev/antd";
-import { Space, Table } from "antd";
+import { Space, Table, Image } from "antd";
 
 export default function BlogPostList() {
   const { tableProps } = useTable<IPosts>({
@@ -48,7 +48,7 @@ export default function BlogPostList() {
         {/* <Table.Column dataIndex="id" title="ID" /> */}
         <Table.Column
           dataIndex="featured"
-          title="Fixado"
+          title="Destaque"
           sorter
           render={(value: string) => <BooleanField value={value} />}
         />
@@ -93,13 +93,17 @@ export default function BlogPostList() {
         <Table.Column dataIndex="url" title="Link" />
         <Table.Column dataIndex="year" title="Ano" filterDropdown />
         <Table.Column dataIndex="description" title="Descrição" />
-        {/* <Table.Column
+        <Table.Column
           dataIndex="image"
           title="Image"
           render={(image) => {
-            return <Image alt={image.name} src={image.url} />;
+            const img =
+              image && typeof image === "string" ? JSON.parse(image) : "";
+
+            const url = img ? img[0]?.url : "";
+            return image && <Image alt={image?.name} src={url} width={100} />;
           }}
-        /> */}
+        />
         <Table.Column<IPosts>
           title="Actions"
           dataIndex="actions"

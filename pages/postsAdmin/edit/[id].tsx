@@ -42,7 +42,7 @@ const PostEdit: React.FC = () => {
   const { selectProps: serviceCategorySelectProps } =
     useSelect<IServiceCategory>({
       resource: "ServiceCategories",
-      defaultValue: postData?.id_service_category.id,
+      defaultValue: postData?.id_service_category?.id,
       optionLabel: "title",
     });
 
@@ -168,7 +168,7 @@ const PostEdit: React.FC = () => {
               listType="picture"
               customRequest={async ({ file, onError, onSuccess }) => {
                 const rcFile = file as RcFile;
-                const fileUrl = `project-images/image/${rcFile.name}`;
+                const fileUrl = `images/${rcFile.name}`;
 
                 const { error } = await supabaseClient.storage
                   .from("project-images")

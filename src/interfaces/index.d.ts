@@ -102,6 +102,12 @@ export interface IOrder {
   amount: number;
 }
 
+export interface IHistory {
+  id: string;
+  createdAt: string;
+  description: string;
+  date: Date;
+}
 export interface IPosts {
   id: string;
   createdAt: string;

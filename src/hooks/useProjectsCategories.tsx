@@ -2,7 +2,11 @@ import { supabaseClient } from "src/utility";
 import { useQuery } from "react-query";
 
 export function getProjectsCategories(client: typeof supabaseClient) {
-  return client.from("PostCategories").select(`*`).throwOnError();
+  return client
+    .from("PostCategories")
+    .select(`*`)
+    .order("created_at")
+    .throwOnError();
 }
 
 function useProjectsCategories() {

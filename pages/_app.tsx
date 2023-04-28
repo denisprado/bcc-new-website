@@ -74,6 +74,16 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
             notificationProvider={notificationProvider}
             resources={[
               {
+                name: "Posts",
+                list: "/postsAdmin",
+                create: "/postsAdmin/create",
+                edit: "/postsAdmin/edit/:id",
+                show: "/postsAdmin/show/:id",
+                meta: {
+                  canDelete: true,
+                },
+              },
+              {
                 name: "Services",
                 list: "/servicesAdmin",
                 create: "/servicesAdmin/create",
@@ -83,22 +93,32 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                   canDelete: true,
                 },
               },
-              // {
-              // 	name: "PostCategories",
-              // 	list: "/servicesAdmin",
-              // 	create: "/servicesAdmin/create",
-              // 	edit: "/servicesAdmin/edit/:id",
-              // 	show: "/servicesAdmin/show/:id",
-              // 	meta: {
-              // 		canDelete: true,
-              // 	},
-              // },
               {
-                name: "Posts",
-                list: "/postsAdmin",
-                create: "/postsAdmin/create",
-                edit: "/postsAdmin/edit/:id",
-                show: "/postsAdmin/show/:id",
+                name: "PostCategories",
+                list: "/categoriesAdmin",
+                create: "/categoriesAdmin/create",
+                edit: "/categoriesAdmin/edit/:id",
+                show: "/categoriesAdmin/show/:id",
+                meta: {
+                  canDelete: true,
+                },
+              },
+              {
+                name: "ServiceCategories",
+                list: "/categoriesServicesAdmin",
+                create: "/categoriesServicesAdmin/create",
+                edit: "/categoriesServicesAdmin/edit/:id",
+                show: "/categoriesServicesAdmin/show/:id",
+                meta: {
+                  canDelete: true,
+                },
+              },
+              {
+                name: "History",
+                list: "/historyAdmin",
+                create: "/historyAdmin/create",
+                edit: "/historyAdmin/edit/:id",
+                show: "/historyAdmin/show/:id",
                 meta: {
                   canDelete: true,
                 },

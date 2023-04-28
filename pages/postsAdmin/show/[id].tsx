@@ -11,7 +11,7 @@ export default function BlogPostShow() {
   const { data, isLoading } = queryResult;
   const record = data?.data;
   const url = record ? JSON.parse(record?.image) : "";
-  console.log(url[0]?.url);
+
   return (
     <Show isLoading={isLoading}>
       <Title level={5}>Title</Title>

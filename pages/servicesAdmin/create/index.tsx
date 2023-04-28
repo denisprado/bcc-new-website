@@ -1,7 +1,6 @@
 import { Create, useForm, useSelect } from "@refinedev/antd";
-import { Form, Select } from "antd";
+import { Form, Input, Select } from "antd";
 import { GetServerSideProps } from "next";
-import dynamic from "next/dynamic";
 import { authProvider } from "src/authProvider";
 import { IServiceCategory, IServices } from "src/interfaces";
 
@@ -15,10 +14,6 @@ const ServicesCreate: React.FC = () => {
     resource: "PostCategories",
     defaultValue: postData?.id_category_service.id,
     optionLabel: "title",
-  });
-
-  const MDEditor = dynamic(() => import("@uiw/react-md-editor"), {
-    ssr: false,
   });
 
   return (
@@ -44,7 +39,7 @@ const ServicesCreate: React.FC = () => {
             },
           ]}
         >
-          <MDEditor />
+          <Input />
         </Form.Item>
       </Form>
     </Create>

@@ -1,10 +1,9 @@
 // import { AntdEditInferencer } from "@refinedev/inferencer/antd";
-import { GetServerSideProps } from "next";
-import { authProvider } from "src/authProvider";
-import React, { useState } from "react";
-import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
-import dynamic from "next/dynamic";
+import "@uiw/react-md-editor/markdown-editor.css";
+import { GetServerSideProps } from "next";
+import React, { useState } from "react";
+import { authProvider } from "src/authProvider";
 
 import {
   Edit,
@@ -13,15 +12,10 @@ import {
   useForm,
   useSelect,
 } from "@refinedev/antd";
-import { Alert, Button, Form, Input, Select, Upload } from "antd";
+import { Alert, Button, Form, Input, Select } from "antd";
 // import { RcFile } from "antd/lib/upload/interface";
 
-const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
-
-import { IServices, IServiceCategory } from "src/interfaces";
-import { supabaseClient } from "src/utility";
-import { RcFile } from "antd/es/upload";
-import { normalizeFile } from "src/utility/normalizeFile";
+import { IServiceCategory, IServices } from "src/interfaces";
 // import { supabaseClient, normalizeFile } from "src/utility";
 
 const ServiceEdit: React.FC = () => {
@@ -95,52 +89,52 @@ const ServiceEdit: React.FC = () => {
         >
           <Select {...categorySelectProps} />
         </Form.Item>
-        <Form.Item
-          label="Content"
-          name="description"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <MDEditor />
-        </Form.Item>
-        <Form.Item label="Images">
-          <Form.Item
-            name="image"
-            valuePropName="image"
-            normalize={normalizeFile}
-            noStyle
-          >
-            <Upload.Dragger
-              name="image"
-              listType="picture"
-              customRequest={async ({ file, onError, onSuccess }) => {
-                const rcFile = file as RcFile;
-                const fileUrl = `project-images/image/${rcFile.name}`;
+        {/* <Form.Item
+					label="Content"
+					name="description"
+					rules={[
+						{
+							required: true,
+						},
+					]}
+				>
+					<Input />
+				</Form.Item> */}
+        {/* <Form.Item label="Images">
+					<Form.Item
+						name="image"
+						valuePropName="image"
+						normalize={normalizeFile}
+						noStyle
+					>
+						<Upload.Dragger
+							name="image"
+							listType="picture"
+							customRequest={async ({ file, onError, onSuccess }) => {
+								const rcFile = file as RcFile;
+								const fileUrl = `project-images/image/${rcFile.name}`;
 
-                const { error } = await supabaseClient.storage
-                  .from("project-images")
-                  .upload(fileUrl, file, {
-                    cacheControl: "3600",
-                    upsert: true,
-                  });
+								const { error } = await supabaseClient.storage
+									.from("project-images")
+									.upload(fileUrl, file, {
+										cacheControl: "3600",
+										upsert: true,
+									});
 
-                if (error) {
-                  return onError?.(error);
-                }
-                const { data } = supabaseClient.storage
-                  .from("project-images")
-                  .getPublicUrl(fileUrl);
+								if (error) {
+									return onError?.(error);
+								}
+								const { data } = supabaseClient.storage
+									.from("project-images")
+									.getPublicUrl(fileUrl);
 
-                onSuccess?.({ url: data?.publicUrl }, new XMLHttpRequest());
-              }}
-            >
-              <p className="ant-upload-text">Drag & drop a file in this area</p>
-            </Upload.Dragger>
-          </Form.Item>
-        </Form.Item>
+								onSuccess?.({ url: data?.publicUrl }, new XMLHttpRequest());
+							}}
+						>
+							<p className="ant-upload-text">Drag & drop a file in this area</p>
+						</Upload.Dragger>
+					</Form.Item>
+				</Form.Item> */}
       </Form>
     </Edit>
   );
@@ -155,7 +149,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {},
       redirect: {
-        destination: `${redirectTo}?to=${encodeURIComponent("/services")}`,
+        destination: `${redirectTo}?to=${encodeURIComponent("/postsAdmin")}`,
         permanent: false,
       },
     };

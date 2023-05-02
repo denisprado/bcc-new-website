@@ -47,9 +47,24 @@ function VideoHero({
         preload="metadata"
         className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
       >
-        <source src={videoUrl + "#t=0.1"} type="video/mp4" />
+        <source src={`${videoUrl}#t=0.1`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+
+      <div className="absolute h-screen  bottom-24 justify-center z-50">
+        <Link className={"scroll-smooth"} href={buttonHref}>
+          <svg
+            width="200"
+            height="200"
+            xmlns="http://www.w3.org/2000/svg"
+            className="arrows"
+          >
+            <path className="a1" d="M0 0 L30 32 L60 0" strokeWidth={4}></path>
+            <path className="a2" d="M0 20 L30 52 L60 20" strokeWidth={6}></path>
+            <path className="a3" d="M0 40 L30 72 L60 40" strokeWidth={8}></path>
+          </svg>
+        </Link>
+      </div>
     </header>
   );
 }

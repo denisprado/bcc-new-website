@@ -20,6 +20,7 @@ import "../src/styles/styles.css";
 import Image from "next/image";
 import Logo from "public/structuralImages/logo.png";
 import { Analytics } from "@vercel/analytics/react";
+import { AnimatePresence } from "framer-motion";
 export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
   getLayout?: (page: ReactElement) => ReactNode;
@@ -39,7 +40,13 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
           <Hydrate state={pageProps.dehydratedState}>
             <CookiesNotice />
             <Analytics />
-            {getLayout(<Component {...pageProps} />)}
+            <AnimatePresence
+              mode="wait"
+              initial={false}
+              onExitComplete={() => window.scrollTo(0, 0)}
+            >
+              {getLayout(<Component {...pageProps} />)}
+            </AnimatePresence>
           </Hydrate>
           <ReactQueryDevtools />
         </QueryClientProvider>

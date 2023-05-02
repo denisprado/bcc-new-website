@@ -14,3 +14,55 @@
 	color:white
 }
 
+.arrows {
+	width: 60px;
+	height: 72px;
+	position: absolute;
+	left: 50%;
+	margin-left: -30px;
+	bottom: 20px;
+}
+
+.arrows path {
+	fill: transparent;
+	animation: arrow 2s infinite;
+	-webkit-animation: arrow 2s infinite; 
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a3 {
+	animation-delay:-3s;
+	-webkit-animation-delay:-3s; /* Safari 和 Chrome */
+	stroke: #75b847;
+	stroke-width: 3px;	
+}
+
+.arrows path.a2 {
+	animation-delay:-1.5s;
+	-webkit-animation-delay:-1.5s; /* Safari 和 Chrome */
+	stroke: #194091;
+	stroke-width: 2px;	
+}
+
+.arrows path.a1 {	
+	animation-delay:0s;
+	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+	stroke: white;
+	stroke-width: 1px;	
+	}
+

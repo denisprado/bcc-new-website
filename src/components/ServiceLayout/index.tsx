@@ -44,7 +44,8 @@ export default function ServiceLayout({ children }: LayoutProps) {
       </Box>
       <a id="serv" className="scroll-mt-8" />
       <div className="flex flex-col items-center justify-center w-full mt-16">
-        <div className="container flex justify-center w-full border-b border-[--tab-border-color]">
+        <div className="container flex items-center justify-between px-11 w-full border-b border-[--tab-border-color]">
+          <h2 className="text-3xl text-accent">Que fazemos</h2>
           <div className="outline outline-white">
             {serviceCategories?.map((cat) => {
               const tabStyle =

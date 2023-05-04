@@ -1,6 +1,7 @@
 import Box from "@components/Box";
 import Clients from "@components/Clients";
 import Layout from "@components/Layout";
+import Loading from "@components/Loading";
 import ServiceLayout from "@components/ServiceLayout";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
@@ -22,7 +23,7 @@ function ServicePage() {
   const { data: category } = useServiceCategoriesById(id);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (isError) {
@@ -39,7 +40,7 @@ function ServicePage() {
                 color="neutral"
                 key={service.id}
                 className={
-                  "p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-2 border border-primary rounded-lg"
+                  "p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-2 border border-info/75 bg-info/10 rounded-lg"
                 }
               >
                 <h3 className="text-accent">{category && category[0].title}</h3>

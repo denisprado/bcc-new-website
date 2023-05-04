@@ -43,7 +43,7 @@ export default function History() {
                         {hist &&
                           hist.itens.map((h) => (
                             <div
-                              className="flex-1 p-5 text-sm bg-white border rounded-lg pointer-events-none text-primary border-primary sm:text-base md:text-md lg:text-lg hover:border-accent"
+                              className="flex-1 p-5 text-sm bg-white border rounded-lg pointer-events-none border-info/75 bg-info/10 text-primary border-primary sm:text-base md:text-md lg:text-lg hover:border-accent"
                               key={hist.id}
                             >
                               {h.description}

@@ -16,7 +16,7 @@ const Box: FunctionComponent<BoxProps> = ({
       'bg-primary text-white bg-[url("/structuralImages/ilustra-fundo.svg")] bg-cover',
     secondary: "bg-secondary text-white",
     accent: "bg-accent text-white",
-    neutral: "bg-neutral text-primary",
+    neutral: "text-primary",
   };
 
   return <div className={`${bgColor[color]} ${className}`}>{children}</div>;

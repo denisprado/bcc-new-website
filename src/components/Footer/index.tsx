@@ -72,9 +72,6 @@ const Footer = () => {
         >
           Instagram
         </Link>
-        <Link scroll={false} href={``} className={`link link-hover`}>
-          Facebook
-        </Link>
       </div>
     </footer>
   );

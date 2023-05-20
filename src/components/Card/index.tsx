@@ -1,4 +1,3 @@
-import SessionName from "@components/SessionName";
 import Link from "next/link";
 
 interface CardProps {
@@ -37,7 +36,6 @@ const ExternalLinkIcon = () => (
 
 const Card = ({
   description,
-  sessionName,
   title,
   buttonHref,
   className,
@@ -61,7 +59,6 @@ const Card = ({
         </figure>
       )}
       <div className="justify-start flex-none card-body">
-        <SessionName>{sessionName}</SessionName>
         <div className="card-title">
           <h2 className="text-white card-title">{title}</h2>
         </div>

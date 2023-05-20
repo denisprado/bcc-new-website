@@ -7,17 +7,17 @@ export default async function sendEmail(
 ) {
   const { name, email, message } = req.body;
   const transporter = nodemailer.createTransport({
-    host: "smtp.office365.com",
+    host: "smtp.sendgrid.net",
     port: 587,
     auth: {
-      user: "edgarbarassa@bcconsulting.com.br",
-      pass: "",
+      user: "apikey",
+      pass: "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",
     },
   });
 
   const mailOptions = {
     from: email,
-    to: "densiforigo@gmail.com",
+    to: "denisforigo@gmail.com",
     subject: `Message from ${name}`,
     text: message,
   };

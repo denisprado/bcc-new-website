@@ -26,25 +26,28 @@ export default function History() {
       >
         <div className="carousel scroll-pt-[24rem] snap-x">
           {historyGrouped?.map(
-            (hist: {
-              id: Key | null | undefined;
-              ano: string;
-              itens: { id: string; description: string }[];
-            }) => {
+            (
+              hist: {
+                id: Key | null | undefined;
+                ano: string;
+                itens: { id: string; description: string }[];
+              },
+              i: string
+            ) => {
               return (
                 hist && (
                   <div
-                    key={hist.id}
+                    key={i}
                     id={hist.ano ? hist.ano : ""}
                     className="carousel-item w-full scroll-mt-[24rem] "
                   >
                     <div className="flex flex-col justify-start gap-4">
                       <div className="flex flex-col items-stretch h-full gap-4 sm:flex-row">
                         {hist &&
-                          hist.itens.map((h) => (
+                          hist.itens.map((h, i) => (
                             <div
                               className="flex-1 p-5 text-sm bg-white border rounded-lg pointer-events-none border-info/75 bg-info/10 text-primary border-primary sm:text-base md:text-md lg:text-lg hover:border-accent"
-                              key={hist.id}
+                              key={i}
                             >
                               {h.description}
                             </div>

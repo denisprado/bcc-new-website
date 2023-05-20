@@ -15,7 +15,7 @@ const Items = () => {
       active: pathname.indexOf("/about") > -1 ? "active" : "",
     },
     {
-      label: "Que fazemos",
+      label: "O que fazemos",
       slug: "/services",
       active: pathname.indexOf("/services") > -1 ? "active" : "",
     },

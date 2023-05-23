@@ -11,7 +11,7 @@ const ServicesCreate: React.FC = () => {
 
   const postData = queryResult?.data?.data;
   const { selectProps: categorySelectProps } = useSelect<IServiceCategory>({
-    resource: "PostCategories",
+    resource: "ServiceCategories",
     defaultValue: postData?.id_category_service.id,
     optionLabel: "title",
   });
@@ -55,7 +55,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {},
       redirect: {
-        destination: `${redirectTo}?to=${encodeURIComponent("/services")}`,
+        destination: `${redirectTo}?to=${encodeURIComponent("/servicesAdmin")}`,
         permanent: false,
       },
     };

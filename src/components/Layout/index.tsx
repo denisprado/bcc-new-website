@@ -12,7 +12,6 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const { asPath } = useRouter();
-  console.log(asPath);
 
   return (
     <div className="flex flex-col items-center justify-center w-full ">

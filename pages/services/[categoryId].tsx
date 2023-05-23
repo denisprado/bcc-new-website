@@ -30,7 +30,7 @@ function ServicePage() {
 
   return (
     <>
-      <div className="container grid grid-cols-1 p-4 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4 min-h-full bg-[#FBFBFB]">
+      <div className="container grid grid-cols-1 p-4 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4 min-h-full">
         {services &&
           services.map((service) => {
             return (
@@ -38,7 +38,7 @@ function ServicePage() {
                 color="neutral"
                 key={service.id}
                 className={
-                  "p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-2 border border-info/75 bg-info/10 rounded-lg"
+                  "p-5 sm:p-6 md:p-8 lg:px-10 lg:py-8 border border-t-4 flex flex-col gap-2  border-info bg-info/5"
                 }
               >
                 <p className="text-sm sm:text-md md:text-xl lg:text-2xl font-regular">

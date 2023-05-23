@@ -31,7 +31,7 @@ function ProjectPage() {
 
   return (
     <>
-      <div className="container grid grid-cols-1 sm:grid-cols-2 p-4 lg:grid-cols-3 xl:grid-cols-4 m-4 min-h-[120px] gap-4">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 p-4 lg:grid-cols-3 xl:grid-cols-4 m-4 min-h-[120px] gap-4">
         {Projects &&
           Projects.map((project) => {
             return (
@@ -48,9 +48,7 @@ function ProjectPage() {
             );
           })}
       </div>
-      <div className="container">
-        <Clients />
-      </div>
+      <Clients />
     </>
   );
 }

@@ -124,12 +124,7 @@ export default function Home() {
 
       {/* Nossos clientes */}
 
-      <Box
-        color="neutral"
-        className="container grid grid-cols-1 m-4 mx-auto my-10"
-      >
-        <Clients />
-      </Box>
+      <Clients />
 
       {/* Projetos & cia */}
 

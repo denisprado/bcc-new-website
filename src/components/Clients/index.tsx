@@ -47,7 +47,7 @@ const ClientsDesktop: FunctionComponent = () => {
       </div>
       {logos.map((logo, i) => (
         <div
-          className="relative border rounded-md aspect-square h-60 border-primary"
+          className="relative border rounded-md aspect-square h-60 border-primary bg-white"
           key={i}
         >
           <Image
@@ -103,7 +103,16 @@ const Clients = () => {
   const { width } = windowsDimendions;
 
   const Component = width && width < 768 ? ClientsMobile : ClientsDesktop;
-  return <Component />;
+  return (
+    <Box color="grey">
+      <Box
+        color="neutral"
+        className="container grid grid-cols-1 m-4 mx-auto my-10"
+      >
+        <Component />
+      </Box>
+    </Box>
+  );
 };
 
 export default Clients;

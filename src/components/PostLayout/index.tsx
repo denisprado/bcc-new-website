@@ -36,7 +36,7 @@ export default function PostLayout({ children }: LayoutProps) {
       <div className="flex flex-col items-center justify-center w-full mt-16">
         <div className="container flex items-center justify-between px-11 w-full border-b border-[--tab-border-color]">
           <h2 className="text-3xl text-accent">Projetos & cia</h2>
-          <div className="outline outline-white">
+          <div className="tabs outline outline-white">
             {postCategories?.map((cat) => {
               const tabStyle =
                 categoryId === cat.id
@@ -55,8 +55,8 @@ export default function PostLayout({ children }: LayoutProps) {
             })}
           </div>
         </div>
-        {children}
       </div>
+      <div className="w-full mx-auto">{children}</div>
     </Box>
   );
 }

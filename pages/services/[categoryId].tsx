@@ -54,12 +54,12 @@ function ServicePage() {
   };
 
   return (
-    <>
+    <div className="w-full">
       <motion.ul
         variants={container}
         initial="closed"
         animate="open"
-        className="container grid grid-cols-1 p-4 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4 min-h-full"
+        className="container  mx-auto grid grid-cols-1 p-4 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4 min-h-full"
       >
         {services &&
           services.map((service) => {
@@ -79,10 +79,8 @@ function ServicePage() {
           })}
       </motion.ul>
 
-      <div className="container">
-        <Clients />
-      </div>
-    </>
+      <Clients />
+    </div>
   );
 }
 

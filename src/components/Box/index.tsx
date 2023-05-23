@@ -1,6 +1,12 @@
 import { FunctionComponent, ReactNode } from "react";
 interface BoxProps {
-  color?: "primary" | "secondary" | "accent" | "neutral" | "illustrated";
+  color?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "illustrated"
+    | "grey";
   children?: ReactNode;
   className?: string;
 }
@@ -16,6 +22,7 @@ const Box: FunctionComponent<BoxProps> = ({
       'bg-primary text-white bg-[url("/structuralImages/ilustra-fundo.svg")] bg-cover',
     secondary: "bg-secondary text-white",
     accent: "bg-accent text-white",
+    grey: "bg-primary/5 text-white",
     neutral: "text-primary",
   };
 

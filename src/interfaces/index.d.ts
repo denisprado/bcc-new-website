@@ -134,6 +134,8 @@ export interface IPostCategory {
 export interface IServiceCategory {
   id: string;
   title: string;
+  description: string;
+  image: string;
   createdAt: string;
 }
 

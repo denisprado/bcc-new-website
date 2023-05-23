@@ -1,8 +1,11 @@
+import { RcFile } from "@pankod/refine";
 import { Create, useForm } from "@refinedev/antd";
-import { Form, Input } from "antd";
+import { Form, Input, Upload } from "antd";
 import { GetServerSideProps } from "next";
 import { authProvider } from "src/authProvider";
 import { IServiceCategory } from "src/interfaces";
+import { supabaseClient } from "src/utility";
+import { normalizeFile } from "src/utility/normalizeFile";
 
 const ServicesCreate: React.FC = () => {
   const { formProps, saveButtonProps } = useForm<IServiceCategory>({
@@ -13,7 +16,7 @@ const ServicesCreate: React.FC = () => {
     <Create saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Content"
+          label="Título"
           name="title"
           rules={[
             {
@@ -22,6 +25,54 @@ const ServicesCreate: React.FC = () => {
           ]}
         >
           <Input />
+        </Form.Item>
+        <Form.Item
+          label="Descrição"
+          name="description"
+          rules={[
+            {
+              required: false,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item label="Image">
+          <Form.Item
+            name="image"
+            valuePropName="fileList"
+            normalize={normalizeFile}
+            noStyle
+          >
+            <Upload.Dragger
+              name="image"
+              listType="picture"
+              multiple
+              customRequest={async ({ file, onError, onSuccess }) => {
+                try {
+                  const rcFile = file as RcFile;
+
+                  await supabaseClient.storage
+                    .from("project-images")
+                    .upload(`images/${rcFile.name}`, file, {
+                      cacheControl: "3600",
+                      upsert: true,
+                    });
+
+                  const { data } = supabaseClient.storage
+                    .from("project-images")
+                    .getPublicUrl(`${rcFile.name}`);
+
+                  const xhr = new XMLHttpRequest();
+                  onSuccess && onSuccess({ url: data?.publicUrl }, xhr);
+                } catch (error) {
+                  onError && onError(new Error("Upload Error"));
+                }
+              }}
+            >
+              <p className="ant-upload-text">Drag & drop a file in this area</p>
+            </Upload.Dragger>
+          </Form.Item>
         </Form.Item>
       </Form>
     </Create>

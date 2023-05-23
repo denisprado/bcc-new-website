@@ -6,10 +6,13 @@ import React, { useState } from "react";
 import { authProvider } from "src/authProvider";
 
 import { Edit, ListButton, RefreshButton, useForm } from "@refinedev/antd";
-import { Alert, Button, Form, Input } from "antd";
+import { Alert, Button, Form, Input, Upload } from "antd";
 // import { RcFile } from "antd/lib/upload/interface";
-
+import { RcFile } from "antd/es/upload";
 import { IServiceCategory } from "src/interfaces";
+
+import { supabaseClient } from "src/utility";
+import { normalizeFile } from "src/utility/normalizeFile";
 // import { supabaseClient, normalizeFile } from "src/utility";
 
 const ServiceEdit: React.FC = () => {
@@ -66,6 +69,52 @@ const ServiceEdit: React.FC = () => {
           ]}
         >
           <Input />
+        </Form.Item>
+        <Form.Item
+          label="Descrição"
+          name="description"
+          rules={[
+            {
+              required: false,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item label="Images">
+          <Form.Item
+            name="image"
+            valuePropName="image"
+            normalize={normalizeFile}
+            noStyle
+          >
+            <Upload.Dragger
+              name="image"
+              listType="picture"
+              customRequest={async ({ file, onError, onSuccess }) => {
+                const rcFile = file as RcFile;
+                const fileUrl = `images/${rcFile.name}`;
+
+                const { error } = await supabaseClient.storage
+                  .from("project-images")
+                  .upload(fileUrl, file, {
+                    cacheControl: "3600",
+                    upsert: true,
+                  });
+
+                if (error) {
+                  return onError?.(error);
+                }
+                const { data } = supabaseClient.storage
+                  .from("project-images")
+                  .getPublicUrl(fileUrl);
+
+                onSuccess?.({ url: data?.publicUrl }, new XMLHttpRequest());
+              }}
+            >
+              <p className="ant-upload-text">Drag & drop a file in this area</p>
+            </Upload.Dragger>
+          </Form.Item>
         </Form.Item>
       </Form>
     </Edit>

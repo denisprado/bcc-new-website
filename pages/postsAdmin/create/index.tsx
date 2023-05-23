@@ -119,8 +119,8 @@ const PostsCreate: React.FC = () => {
                     });
 
                   const { data } = supabaseClient.storage
-                    .from("videos")
-                    .getPublicUrl(`${rcFile.name}`);
+                    .from("project-images")
+                    .getPublicUrl(`images/${rcFile.name}`);
 
                   const xhr = new XMLHttpRequest();
                   onSuccess && onSuccess({ url: data?.publicUrl }, xhr);

@@ -4,12 +4,16 @@ import Contact from "@components/Contact";
 import Box from "@components/Box";
 import ClientHeader from "../ClientHeader";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const { asPath } = useRouter();
+  console.log(asPath);
+
   return (
     <div className="flex flex-col items-center justify-center w-full ">
       <ClientHeader />
@@ -27,9 +31,11 @@ export default function Layout({ children }: LayoutProps) {
       >
         {children}
       </motion.div>
-      <Box className="w-full px-4" color="neutral">
-        <Contact />
-      </Box>
+      {asPath !== "/about" && (
+        <Box className="w-full px-4" color="neutral">
+          <Contact />
+        </Box>
+      )}
       <Footer />
     </div>
   );

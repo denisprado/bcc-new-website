@@ -3,7 +3,8 @@ import Image from "next/image";
 import logo from "public/structuralImages/logo.png";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import LinkedinLogo from "public/structuralImages/linkedin.svg";
+import InstagramLogo from "public/structuralImages/instagram.svg";
 const Items = () => {
   const router = useRouter();
   const { pathname } = router;
@@ -23,6 +24,16 @@ const Items = () => {
       label: "Projetos & cia",
       slug: "/projects",
       active: pathname.indexOf("/projects") > -1 ? "active" : "",
+    },
+    {
+      label: <Image src={LinkedinLogo} width={16} height={16} alt={""} />,
+      slug: "https://www.linkedin.com/company/barassa-cruz-consulting/",
+      active: false,
+    },
+    {
+      label: <Image src={InstagramLogo} width={16} height={16} alt={""} />,
+      slug: "https://www.instagram.com/barassaecruzconsulting/",
+      active: false,
     },
   ];
 

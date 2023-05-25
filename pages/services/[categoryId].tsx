@@ -54,37 +54,36 @@ function ServicePage() {
   };
 
   return (
-    <div className="w-full">
-      <motion.ul
-        variants={container}
-        initial="closed"
-        animate="open"
-        className="container  mx-auto grid grid-cols-1 p-4 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4 min-h-full"
-      >
-        {services &&
-          services.map((service) => {
-            return (
-              <motion.li
-                key={service.id}
-                variants={item}
-                className={
-                  "p-5 sm:p-6 md:p-8 lg:px-10 lg:py-8 border border-t-4 flex flex-col gap-2  border-info bg-info/5"
-                }
-              >
-                <p className="text-sm sm:text-md md:text-xl lg:text-2xl font-regular">
-                  {service.description}
-                </p>
-              </motion.li>
-            );
-          })}
-      </motion.ul>
-
+    <>
+      <div className="w-full">
+        <motion.ul
+          variants={container}
+          initial="closed"
+          animate="open"
+          className="container  mx-auto grid grid-cols-1 p-4 sm:grid-cols-3 lg:grid-cols-4 m-4 min-h[120px] gap-4 min-h-full"
+        >
+          {services &&
+            services.map((service) => {
+              return (
+                <motion.li
+                  key={service.id}
+                  variants={item}
+                  className={
+                    "p-5 sm:p-6 md:p-8 lg:px-10 lg:py-8 border border-t-4 flex flex-col gap-2  border-info bg-info/5"
+                  }
+                >
+                  <p className="text-sm sm:text-md md:text-xl lg:text-2xl font-regular">
+                    {service.description}
+                  </p>
+                </motion.li>
+              );
+            })}
+        </motion.ul>
+      </div>
       <Clients />
-    </div>
+    </>
   );
 }
-
-ServicePage.noLayout = true;
 
 ServicePage.getLayout = function getLayout(page: ReactElement) {
   return (
@@ -94,4 +93,5 @@ ServicePage.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
+ServicePage.noLayout = true;
 export default ServicePage;

@@ -21,6 +21,10 @@ import Image from "next/image";
 import Logo from "public/structuralImages/logo.png";
 import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence } from "framer-motion";
+import NProgress from "nprogress";
+import Router from "next/router";
+import "../src/styles/nprogress.css";
+
 export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
   getLayout?: (page: ReactElement) => ReactNode;
@@ -29,6 +33,10 @@ export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
   const [queryClient] = useState(() => new QueryClient());

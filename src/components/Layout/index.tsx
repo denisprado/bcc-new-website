@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps) {
   const { asPath } = useRouter();
 
   return (
-    <div className="flex flex-col items-center justify-center w-full ">
+    <div className="flex flex-col items-center justify-center w-full page">
       <ClientHeader />
       <motion.div
         className="w-full"

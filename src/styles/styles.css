@@ -1,6 +1,19 @@
+:root {
+	--primary: "#194091";
+	--secondary: "#1e2a4d";
+	--accent: "#75b847";
+	--white: "fff";
+	--neutral: "#fff";
+	--"base-100": "#fff";
+	--info: "#385cbc";
+	--success: "#3ABA90";
+	--warning: "#F3C178";
+	--error: "#FE5E41";
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @layer base {
   html {

@@ -78,7 +78,7 @@ const Card = ({
             className="pointer-events-auto cursor-pointer break-keep text-white text-xs"
             onClick={() => setDescriptionFull(!descriptionFull)}
           >
-            {descriptionFull ? "ver menos" : "ver mais"}
+            {descriptionFull ? "ver menos" : descriptionSize > 25 && "ver mais"}
           </span>
         </p>
         <div className="flex flex-col ">

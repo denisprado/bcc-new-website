@@ -4,15 +4,16 @@ import Contact from "@components/Contact";
 import Box from "@components/Box";
 import ClientHeader from "../ClientHeader";
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
 
 interface LayoutProps {
   children: ReactNode;
+  hasContactForm?: boolean;
 }
 
-export default function Layout({ children }: LayoutProps) {
-  const { asPath } = useRouter();
-
+export default function Layout({
+  children,
+  hasContactForm = true,
+}: LayoutProps) {
   return (
     <div className="flex flex-col items-center justify-center w-full page">
       <ClientHeader />
@@ -30,7 +31,7 @@ export default function Layout({ children }: LayoutProps) {
       >
         {children}
       </motion.div>
-      {asPath !== "/about" && (
+      {hasContactForm && (
         <Box className="w-full px-4" color="neutral">
           <Contact />
         </Box>

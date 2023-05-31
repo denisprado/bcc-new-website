@@ -1,9 +1,11 @@
 import Box from "@components/Box";
+import Button from "@components/Button";
 import History from "@components/History";
 import Layout from "@components/Layout";
 import Values from "@components/Values";
 import VideoHero from "@components/VideoHero";
 import Image from "next/image";
+import Link from "next/link";
 import edgar from "public/structuralImages/edgar.jpg";
 import robson from "public/structuralImages/robson.jpg";
 import { ReactElement } from "react";
@@ -74,6 +76,12 @@ export default function About() {
                     Participou do desenvolvimento de rotorshafts para a
                     plataforma VW MEB e Tesla Model 3
                   </p>
+                  <Link
+                    href={`https://www.linkedin.com/in/robson-cruz-/`}
+                    target="_blank"
+                  >
+                    <Button type={"page"}>Página no Linkedin</Button>
+                  </Link>
                 </div>
               </Box>
             </Box>
@@ -110,6 +118,12 @@ export default function About() {
                     apoiou a construção do Plano Nacional de Eletromobilidade
                     (2018).
                   </p>
+                  <Link
+                    href={`https://www.linkedin.com/in/edgar-barassa-phd-50165562/`}
+                    target="_blank"
+                  >
+                    <Button type={"page"}>Página no Linkedin</Button>
+                  </Link>
                 </div>
               </Box>
               <Box
@@ -152,5 +166,5 @@ export default function About() {
 About.noLayout = true;
 
 About.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
+  return <Layout hasContactForm={false}>{page}</Layout>;
 };

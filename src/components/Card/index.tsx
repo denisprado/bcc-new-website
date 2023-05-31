@@ -72,7 +72,7 @@ const Card = ({
               {description}
             </span>
           ) : (
-            description.substring(0, 255) + "..."
+            descriptionSize > 25 && description.substring(0, 255) + "..."
           )}{" "}
           <span
             className="pointer-events-auto cursor-pointer break-keep text-white text-xs"

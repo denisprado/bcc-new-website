@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 interface CardProps {
   sessionName: string;
@@ -45,13 +47,15 @@ const Card = ({
 }: CardProps) => {
   const img = image ? JSON.parse(image) : "";
   const url = img[0]?.url;
+  const descriptionSize = description.length;
+  const [descriptionFull, setDescriptionFull] = useState(descriptionSize < 25);
   return (
     <div
       className={`card card-compact sm:card-normal bg-primary text-primary-content ${className}`}
     >
       {url && (
         <figure>
-          <img
+          <Image
             src={url}
             alt="Shoes"
             className="object-cover object-top w-full max-h-72"
@@ -63,7 +67,19 @@ const Card = ({
           <h2 className="text-white card-title">{title}</h2>
         </div>
         <p className="hidden text-sm sm:block">
-          {description.substring(0, 255)}
+          {descriptionFull ? (
+            <span className="animate-bounce transition-all duration-1000">
+              {description}
+            </span>
+          ) : (
+            description.substring(0, 255) + "..."
+          )}{" "}
+          <span
+            className="pointer-events-auto cursor-pointer break-keep text-white text-xs"
+            onClick={() => setDescriptionFull(!descriptionFull)}
+          >
+            {descriptionFull ? "ver menos" : "ver mais"}
+          </span>
         </p>
         <div className="flex flex-col ">
           <div className="flex flex-row items-center justify-start w-full">

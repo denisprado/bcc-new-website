@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -55,9 +54,9 @@ const Card = ({
     >
       {url && (
         <figure>
-          <Image
+          <img
             src={url}
-            alt="Shoes"
+            alt=""
             className="object-cover object-top w-full max-h-72"
           />
         </figure>
@@ -72,14 +71,16 @@ const Card = ({
               {description}
             </span>
           ) : (
-            descriptionSize > 25 && description.substring(0, 255) + "..."
+            description.substring(0, 255) + "..."
           )}{" "}
-          <span
-            className="pointer-events-auto cursor-pointer break-keep text-white text-xs"
-            onClick={() => setDescriptionFull(!descriptionFull)}
-          >
-            {descriptionFull ? "ver menos" : descriptionSize > 25 && "ver mais"}
-          </span>
+          {descriptionSize > 25 && (
+            <span
+              className="pointer-events-auto cursor-pointer break-keep text-white text-xs"
+              onClick={() => setDescriptionFull(!descriptionFull)}
+            >
+              {descriptionFull ? "ver menos" : "ver mais"}
+            </span>
+          )}
         </p>
         <div className="flex flex-col ">
           <div className="flex flex-row items-center justify-start w-full">

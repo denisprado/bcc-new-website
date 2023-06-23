@@ -12,7 +12,7 @@ interface LayoutProps {
 
 export default function Layout({
   children,
-  hasContactForm = true,
+  hasContactForm = false,
 }: LayoutProps) {
   return (
     <div className="flex flex-col items-center justify-center w-full page">

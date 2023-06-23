@@ -54,7 +54,7 @@ function ServicePage() {
   };
 
   return (
-    <>
+    <div className="w-full">
       <div className="w-full">
         <motion.ul
           variants={container}
@@ -81,7 +81,7 @@ function ServicePage() {
         </motion.ul>
       </div>
       <Clients />
-    </>
+    </div>
   );
 }
 
